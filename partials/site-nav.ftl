@@ -17,15 +17,66 @@
     </div>
     <div class="site-nav-right">
         <div class="social-links">
-            <a class="social-link social-link-fb" href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">
-                <#include "../partials/icons/facebook.ftl">
-            </a>
-            <a class="social-link social-link-tw" href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">
+
+            <#if options.casper_sns_twitter??>
+            <a class="social-link social-link-tw" href="https://twitter.com/${options.casper_sns_twitter}" target="_blank" rel="noopener">
                 <#include "../partials/icons/twitter.ftl">
             </a>
+            </#if>
+
+            <#if options.casper_sns_facebook??>
+            <a class="social-link social-link-fb" href="https://www.facebook.com/${options.casper_sns_facebook}" target="_blank" rel="noopener">
+                <#include "../partials/icons/facebook.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_instagram??>
+            <a class="social-link social-link-fb" href="https://www.instagram.com/${options.casper_sns_instagram}" target="_blank" rel="noopener">
+                <#include "../partials/icons/instagram.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_dribbble??>
+            <a class="social-link social-link-fb" href="https://dribbble.com/${options.casper_sns_dribbble}" target="_blank" rel="noopener">
+                <#include "../partials/icons/dribbble.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_weibo??>
+            <a class="social-link social-link-fb" href="https://weibo.com/${options.casper_sns_weibo}" target="_blank" rel="noopener">
+                <#include "../partials/icons/weibo.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_qq??>
+            <a class="social-link social-link-fb" href="tencent://message/?uin=${options.casper_sns_qq}&Site=&Menu=yes" target="_blank" rel="noopener">
+                <#include "../partials/icons/qq.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_telegram??>
+            <a class="social-link social-link-fb" href="https://t.me/${options.casper_sns_telegram}" target="_blank" rel="noopener">
+                <#include "../partials/icons/telegram.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_email??>
+            <a class="social-link social-link-fb" href="mailto:${options.casper_sns_email}" target="_blank" rel="noopener">
+                <#include "../partials/icons/email.ftl">
+            </a>
+            </#if>
+
+            <#if options.casper_sns_github??>
+            <a class="social-link social-link-fb" href="https://github.com/${options.casper_sns_github}" target="_blank" rel="noopener">
+                <#include "../partials/icons/github.ftl">
+            </a>
+            </#if>
+
         </div>
+        <#if options.casper_sns_rss?default('true')=='true'>
         <a class="rss-button" href="/feed.xml" target="_blank" rel="noopener">
             <#include "../partials/icons/rss.ftl">
         </a>
+        </#if>
     </div>
 </nav>

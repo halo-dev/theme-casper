@@ -1,15 +1,19 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="标签：${tag.tagName} | ${options.blog_title}" keyword="${options.seo_keywords}" desc="${options.seo_desc}" canonical="${options.blog_url}/tags/${tag.tagName}" body_class="tag-template">
+<@default title="分类：${category.cateName} | ${options.blog_title}" keyword="${options.seo_keywords}" desc="${options.seo_desc}" canonical="${options.blog_url}/categories/${category.cateName}" body_class="tag-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- The big featured header, it uses blog cover image as a BG if available -->
 <header class="site-header outer <#if options.casper_general_cover?default('/casper/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${options.casper_general_cover?default('/casper/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
     <div class="inner">
         <#include "partials/site-nav.ftl">
         <div class="site-header-content">
-            <h1 class="site-title">标签：${tag.tagName}</h1>
+            <h1 class="site-title">分类：${category.cateName}</h1>
             <h2 class="site-description">
-                ${tag.posts?size}篇文章
+                <#if category.cateDesc?? && category.cateDesc?if_exists!=''>
+                    ${category.cateDesc}
+                <#else>
+                    ${category.posts?size}篇文章
+                </#if>
             </h2>
         </div>
     </div>
@@ -20,7 +24,7 @@
     <div class="inner">
         <div class="post-feed">
             <#list posts.content as post>
-            <#-- The tag below includes the markup for each post - partials/post-card.hbs -->
+                <#-- The tag below includes the markup for each post - partials/post-card.hbs -->
                 <@post_card post></@post_card>
             </#list>
         </div>

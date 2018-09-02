@@ -84,8 +84,14 @@ $(function ($) {
         // next page
         currentPage += 1;
 
+        if(pathname.charAt(pathname.length-1) != '/'){
+            pathname = pathname+'/';
+        }
+
         // Load more
         var nextPage = pathname + 'page/' + currentPage + '/';
+        console.log(pathname);
+        console.log(nextPage);
 
         $.get(nextPage, function (content) {
             var parse = document.createRange().createContextualFragment(content);

@@ -1,5 +1,6 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
+<#include "partials/floating-header.ftl">
 <@default title="${post.postTitle} | ${options.blog_title}" keyword="${options.seo_keywords},${tagWords}" desc="${post.postSummary?if_exists}" canonical="${options.blog_url}/archives/${post.postUrl}" body_class="post-template">
 
 <#-- The tag above means: insert everything in this file
@@ -20,7 +21,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="${post.postDate?string('yyyy-MM-dd')}">${post.postDate?string('MMM d,yyyy')}</time>
+                    <time class="post-full-meta-date" datetime="${post.postDate?string('yyyy-MM-dd')}">${post.postDate?string('d MMM,yyyy')}</time>
                     <#if post.categories?? && post.categories?size gt 0>
                     <span class="date-divider">/</span> <a href="/categories/${post.categories[0].cateUrl}">${post.categories[0].cateName}</a>
                     </#if>
@@ -114,7 +115,7 @@ into the {body} of the default.hbs template -->
 </aside>
 
 <#-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
-<#include "partials/floating-header.ftl">
+<@floating_header title="${post.postTitle}"></@floating_header>
 
 </@default>
 <@scripts>
