@@ -32,7 +32,7 @@ into the {body} of the default.hbs template -->
                         <@commonTag method="links">
                             <#list links as link>
                                 <li>
-                                    <a href="${link.linkUrl}" target="_blank">${link.linkName}</a>
+                                    <a href="${link.linkUrl}" target="_blank">${link.linkName}</a><#if link.linkDesc != ''> - ${link.linkDesc}</#if>
                                 </li>
                             </#list>
                         </@commonTag>
