@@ -153,11 +153,6 @@
                             <div class="box-footer">
                                 <button type="button" class="btn btn-primary btn-sm pull-right" onclick="saveThemeOptions('casperSnsOptions')">保存设置</button>
                             </div>
-							<#if hasUpdate>
-                            <div class="box-footer">
-                                <button type="button" class="btn btn-warning btn-sm pull-right" data-loading-text="更新中..." onclick="updateTheme('${themeDir}',this)">更新主题</button>
-                            </div>
-                            </#if>
                         </form>
                     </div>
                     <!-- 关于该主题 -->
@@ -176,6 +171,11 @@
                                     <li><a target="_blank" href="https://github.com/TryGhost/Casper">原主题地址</a></li>
                                 </ul>
                             </div>
+							<#if hasUpdate>
+                            <div class="box-footer">
+                                <button type="button" class="btn btn-warning btn-sm pull-right" data-loading-text="更新中..." onclick="updateTheme('${themeDir}',this)">更新主题</button>
+                            </div>
+                            </#if>
                         </div>
                     </div>
                 </div>
