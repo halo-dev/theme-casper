@@ -216,5 +216,53 @@
             scrollbar: false
         });
     }
+	/**
+	* 更新主题
+	*/
+    function updateTheme(theme,e) {
+        $(e).button('loading');
+        $.ajax({
+            type: 'get',
+            url: '/admin/themes/pull',
+            data: {
+                'themeName': theme
+            },
+            success: function (data) {
+                if (data.code == 1) {
+                    $.toast({
+                        text: data.msg,
+                        heading: '提示',
+                        icon: 'success',
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 1000,
+                        stack: 1,
+                        position: 'top-center',
+                        textAlign: 'left',
+                        loader: true,
+                        loaderBg: '#ffffff',
+                        afterHidden: function () {
+                            parent.location.href = "/admin/themes";
+                        }
+                    });
+                } else {
+                    $.toast({
+                        text: data.msg,
+                        heading: '提示',
+                        icon: 'error',
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 2000,
+                        stack: 1,
+                        position: 'top-center',
+                        textAlign: 'left',
+                        loader: true,
+                        loaderBg: '#ffffff'
+                    });
+                    $(e).button('reset');
+                }
+            }
+        });
+    }
 </script>
 </html>
