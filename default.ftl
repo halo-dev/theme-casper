@@ -1,5 +1,5 @@
 <#macro default title,keyword,desc,canonical,body_class>
-<#include "../../common/macro/common_macro.ftl">
+<#import "../../common/macro/common_macro.ftl" as common>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -19,7 +19,7 @@
     <#-- This tag outputs SEO meta+structured data and other important settings -->
 
     <meta name="description" content="${desc}" />
-    <@favicon></@favicon>
+    <@common.favicon />
     <link rel="canonical" href="${canonical}" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -90,6 +90,7 @@
 
 <#macro scripts>
     <#nested >
+    <@common.statistics />
 </body>
 </html>
 </#macro>
