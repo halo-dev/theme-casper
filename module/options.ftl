@@ -74,6 +74,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="casperGeneralPostCopyright" class="col-sm-4 control-label">文章版权：</label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="casper_general_post_copyright" id="casperGeneralPostCopyright" value="true" ${((options.casper_general_post_copyright?default('true'))=='true')?string('checked','')}> 显示
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="casper_general_post_copyright" id="casperGeneralPostCopyright" value="false" ${((options.casper_general_post_copyright?if_exists)=='false')?string('checked','')}> 隐藏
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="box-footer">
                                 <button type="button" class="btn btn-primary btn-sm pull-right" onclick="saveThemeOptions('casperGeneralOptions')">保存设置</button>

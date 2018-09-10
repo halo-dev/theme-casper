@@ -37,6 +37,7 @@ into the {body} of the default.hbs template -->
             <section class="post-full-content">
                 <div class="post-content">
                     ${post.postContent?if_exists}
+                    <#include "partials/post-copyright.ftl">
                 </div>
             </section>
 
