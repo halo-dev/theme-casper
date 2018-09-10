@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/casper/assets/built/screen.css" />
 
     <#-- This tag outputs SEO meta+structured data and other important settings -->
-
+    <meta name="keywords" content="${keyword}" />
     <meta name="description" content="${desc}" />
     <@common.favicon />
     <link rel="canonical" href="${canonical}" />
