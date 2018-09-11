@@ -160,6 +160,18 @@
                                         <input type="text" class="form-control" id="casperSnsTelegram" name="casper_sns_telegram" value="${options.casper_sns_telegram?if_exists}" >
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="casperSnsCnBLog" class="col-sm-4 control-label">博客园：</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="casperSnsCnBLog" name="casper_sns_cnblog" value="${options.casper_sns_cnblog?if_exists}" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="casperSnsStackoverflow" class="col-sm-4 control-label">Stack Overflow：</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="casperSnsStackoverflow" name="casper_sns_stackoverflow" value="${options.casper_sns_stackoverflow?if_exists}" >
+                                    </div>
+                                </div>
                             </div>
                             <div class="box-footer">
                                 <button type="button" class="btn btn-primary btn-sm pull-right" onclick="saveThemeOptions('casperSnsOptions')">保存设置</button>

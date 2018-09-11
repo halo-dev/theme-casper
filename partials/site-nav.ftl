@@ -72,6 +72,17 @@
             </a>
             </#if>
 
+            <#if options.casper_sns_cnblog??>
+                <a class="social-link social-link-fb" href="https://www.cnblogs.com/${options.casper_sns_cnblog}/" target="_blank" rel="noopener">
+                    <#include "../partials/icons/cnblog.ftl">
+                </a>
+            </#if>
+
+            <#if options.casper_sns_stackoverflow??>
+                <a class="social-link social-link-fb" href="https://stackoverflow.com/users/${options.casper_sns_stackoverflow}" target="_blank" rel="noopener">
+                    <#include "../partials/icons/stackoverflow.ftl">
+                </a>
+            </#if>
         </div>
         <#if options.casper_sns_rss?default('true')=='true'>
         <a class="rss-button" href="/feed.xml" target="_blank" rel="noopener">
