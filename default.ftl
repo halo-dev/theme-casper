@@ -19,6 +19,7 @@
     <#-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="keywords" content="${keyword}" />
     <meta name="description" content="${desc}" />
+    <@common.verification />
     <@common.favicon />
     <link rel="canonical" href="${canonical}" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
