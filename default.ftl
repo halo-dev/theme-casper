@@ -53,7 +53,10 @@
         <#assign current="${.now}">
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="${options.blog_url}">${options.blog_title}</a> &copy; ${current?substring(0,4)}</section>
+                <section class="copyright">
+                    <a href="${options.blog_url}">${options.blog_title}</a> &copy; ${current?substring(0,4)}
+                    <@common.footer_info />
+                </section>
                 <nav class="site-footer-nav">
                     <a href="${options.blog_url}">Latest Posts</a>
                     <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
