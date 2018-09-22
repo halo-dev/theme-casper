@@ -5,7 +5,7 @@
 into the {body} of the default.hbs template -->
 
 <#-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer <#if options.casper_general_cover?default('/casper/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${options.casper_general_cover?default('/casper/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
+<header class="site-header outer <#if options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
     <div class="inner">
         <div class="site-header-content">
             <h1 class="site-title">
@@ -44,7 +44,7 @@ into the {body} of the default.hbs template -->
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="/casper/assets/js/infinitescroll.js"></script>
+    <script src="/${themeName}/assets/js/infinitescroll.js"></script>
     </#if>
     <#-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
     <#-- {{ghost_foot}} -->
