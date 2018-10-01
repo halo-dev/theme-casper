@@ -1,5 +1,5 @@
 <#macro default title,keyword,desc,canonical,body_class>
-<#import "../../common/macro/common_macro.ftl" as common>
+<#import "/common/macro/common_macro.ftl" as common>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
