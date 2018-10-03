@@ -85,7 +85,7 @@
 
     <#-- jQuery + Fitvids, which makes all video embeds responsive -->
     <script
-        src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"
+        src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
