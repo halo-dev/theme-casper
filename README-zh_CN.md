@@ -25,6 +25,5 @@
 ## 使用方法
 
 1. 克隆或者[下载](https://github.com/ruibaby/casper-halo/releases)。
-2. 将文件夹名改为`casper`，将文件夹名改为`casper`,将文件夹名改为`casper`！！！
-3. 压缩为zip压缩包之后在后台的主题设置直接上传即可使用。
+2. 压缩为zip压缩包之后在后台的主题设置直接上传即可使用。
 
