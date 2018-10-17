@@ -89,7 +89,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="/${themeName}/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/${themeName}/assets/built/jquery.fitvids.js"></script>
 </#macro>
 
 <#macro scripts>

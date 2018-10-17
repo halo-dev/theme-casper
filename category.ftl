@@ -39,6 +39,6 @@
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="/${themeName}/assets/js/infinitescroll.js"></script>
+    <script src="/${themeName}/assets/built/infinitescroll.js"></script>
     </#if>
 </@scripts>

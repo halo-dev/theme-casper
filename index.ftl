@@ -44,7 +44,7 @@ into the {body} of the default.hbs template -->
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="/${themeName}/assets/js/infinitescroll.js"></script>
+    <script src="/${themeName}/assets/built/infinitescroll.js"></script>
     </#if>
     <#-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
     <#-- {{ghost_foot}} -->
