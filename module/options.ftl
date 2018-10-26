@@ -67,6 +67,12 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="casperGeneralLocation" class="col-sm-4 control-label">所在地：</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="casperGeneralLocation" name="casper_general_location" value="${options.casper_general_location?if_exists}" >
+                                    </div>
+                                </div>
                             </div>
                             <div class="box-footer">
                                 <button type="button" class="btn btn-primary btn-sm pull-right" onclick="saveThemeOptions('casperGeneralOptions')">保存设置</button>

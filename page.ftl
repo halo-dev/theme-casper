@@ -15,7 +15,7 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer">
     <div class="inner">
 
-        <article class="post-full post page {{#unless feature_image}}no-image{{/unless}}">
+        <article class="post-full post page <#if !post.postThumbnail??>no-image</#if>">
 
             <header class="post-full-header">
                 <h1 class="post-full-title">${post.postTitle}</h1>
