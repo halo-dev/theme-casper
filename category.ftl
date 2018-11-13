@@ -1,6 +1,6 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="分类：${category.cateName} | ${options.blog_title}" keyword="${options.seo_keywords?if_exists}" desc="${options.seo_desc?if_exists}" canonical="${options.blog_url}/categories/${category.cateName}" body_class="tag-template">
+<@default title="分类：${category.cateName!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_desc!}" canonical="${options.blog_url}/categories/${category.cateName}" body_class="tag-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- The big featured header, it uses blog cover image as a BG if available -->
 <header class="site-header outer <#if options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
@@ -9,7 +9,7 @@
         <div class="site-header-content">
             <h1 class="site-title">分类：${category.cateName}</h1>
             <h2 class="site-description">
-                <#if category.cateDesc?? && category.cateDesc?if_exists!=''>
+                <#if category.cateDesc?? && (category.cateDesc!'')!=''>
                     ${category.cateDesc}
                 <#else>
                     ${category.posts?size}篇文章

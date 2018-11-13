@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="文章归档 | ${options.blog_title}" keyword="${options.seo_keywords?if_exists}" desc="${options.seo_desc?if_exists}" canonical="${options.blog_url}/archives" body_class="page-template">
+<@default title="文章归档 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_desc!}" canonical="${options.blog_url}/archives" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->

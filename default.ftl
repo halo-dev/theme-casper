@@ -29,13 +29,13 @@
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${desc}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:image" content="${options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg')}" />
+    <meta property="og:image" content="${options.casper_general_cover!'/${themeName}/assets/images/blog-cover.jpg'}" />
     <meta property="article:publisher" content="https://www.facebook.com/ghost" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${desc}" />
     <meta name="twitter:url" content="${canonical}" />
-    <meta name="twitter:image" content="${options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg')}" />
+    <meta name="twitter:image" content="${options.casper_general_cover!'/${themeName}/assets/images/blog-cover.jpg'}" />
     <meta name="twitter:site" content="@tryghost" />
     <meta property="og:image:width" content="2000" />
     <meta property="og:image:height" content="666" />

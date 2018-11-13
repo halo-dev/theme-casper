@@ -27,7 +27,7 @@
                                     <label for="casperGeneralCover" class="col-sm-4 control-label">首页背景图：</label>
                                     <div class="col-sm-8">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="casperGeneralCover" name="casper_general_cover" value="${options.casper_general_cover?default('/casper/assets/images/blog-cover.jpg')}" >
+                                            <input type="text" class="form-control" id="casperGeneralCover" name="casper_general_cover" value="${options.casper_general_cover!'/casper/assets/images/blog-cover.jpg'}" >
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default btn-flat" type="button" onclick="openAttach('casperGeneralCover')">选择</button>
                                             </span>
@@ -38,7 +38,7 @@
                                     <label for="casperGeneralLinksCover" class="col-sm-4 control-label">友情链接背景图：</label>
                                     <div class="col-sm-8">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="casperGeneralLinksCover" name="casper_general_links_cover" value="${options.casper_general_links_cover?if_exists}" >
+                                            <input type="text" class="form-control" id="casperGeneralLinksCover" name="casper_general_links_cover" value="${options.casper_general_links_cover!}" >
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default btn-flat" type="button" onclick="openAttach('casperGeneralLinksCover')">选择</button>
                                             </span>
@@ -49,7 +49,7 @@
                                     <label for="casperGeneralArchivesCover" class="col-sm-4 control-label">归档背景图：</label>
                                     <div class="col-sm-8">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="casperGeneralArchivesCover" name="casper_general_archives_cover" value="${options.casper_general_archives_cover?if_exists}" >
+                                            <input type="text" class="form-control" id="casperGeneralArchivesCover" name="casper_general_archives_cover" value="${options.casper_general_archives_cover!}" >
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default btn-flat" type="button" onclick="openAttach('casperGeneralArchivesCover')">选择</button>
                                             </span>
@@ -60,17 +60,17 @@
                                     <label for="casperGeneralPostCopyright" class="col-sm-4 control-label">文章版权：</label>
                                     <div class="col-sm-8">
                                         <label class="radio-inline">
-                                            <input type="radio" name="casper_general_post_copyright" id="casperGeneralPostCopyright" value="true" ${((options.casper_general_post_copyright?default('true'))=='true')?string('checked','')}> 显示
+                                            <input type="radio" name="casper_general_post_copyright" id="casperGeneralPostCopyright" value="true" ${((options.casper_general_post_copyright!'true')=='true')?string('checked','')}> 显示
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="casper_general_post_copyright" id="casperGeneralPostCopyright" value="false" ${((options.casper_general_post_copyright?if_exists)=='false')?string('checked','')}> 隐藏
+                                            <input type="radio" name="casper_general_post_copyright" id="casperGeneralPostCopyright" value="false" ${((options.casper_general_post_copyright!)=='false')?string('checked','')}> 隐藏
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperGeneralLocation" class="col-sm-4 control-label">所在地：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperGeneralLocation" name="casper_general_location" value="${options.casper_general_location?if_exists}" >
+                                        <input type="text" class="form-control" id="casperGeneralLocation" name="casper_general_location" value="${options.casper_general_location!}" >
                                     </div>
                                 </div>
                             </div>
@@ -87,77 +87,77 @@
                                     <label for="casperSnsRss" class="col-sm-4 control-label">RSS：</label>
                                     <div class="col-sm-8">
                                         <label class="radio-inline">
-                                            <input type="radio" name="casper_sns_rss" id="casperSnsRss" value="true" ${((options.casper_sns_rss?default('true'))=='true')?string('checked','')}> 显示
+                                            <input type="radio" name="casper_sns_rss" id="casperSnsRss" value="true" ${((options.casper_sns_rss!'true')=='true')?string('checked','')}> 显示
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="casper_sns_rss" id="casperSnsRss" value="false" ${((options.casper_sns_rss?if_exists)=='false')?string('checked','')}> 隐藏
+                                            <input type="radio" name="casper_sns_rss" id="casperSnsRss" value="false" ${((options.casper_sns_rss!)=='false')?string('checked','')}> 隐藏
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsTwitter" class="col-sm-4 control-label">Twitter：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsTwitter" name="casper_sns_twitter" value="${options.casper_sns_twitter?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsTwitter" name="casper_sns_twitter" value="${options.casper_sns_twitter!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsFacebook" class="col-sm-4 control-label">Facebook：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsFacebook" name="casper_sns_facebook" value="${options.casper_sns_facebook?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsFacebook" name="casper_sns_facebook" value="${options.casper_sns_facebook!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsInstagram" class="col-sm-4 control-label">Instagram：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsInstagram" name="casper_sns_instagram" value="${options.casper_sns_instagram?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsInstagram" name="casper_sns_instagram" value="${options.casper_sns_instagram!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsDribbble" class="col-sm-4 control-label">Dribbble：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsDribbble" name="casper_sns_dribbble" value="${options.casper_sns_dribbble?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsDribbble" name="casper_sns_dribbble" value="${options.casper_sns_dribbble!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsWeibo" class="col-sm-4 control-label">Weibo：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsWeibo" name="casper_sns_weibo" value="${options.casper_sns_weibo?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsWeibo" name="casper_sns_weibo" value="${options.casper_sns_weibo!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsEmail" class="col-sm-4 control-label">Email：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsEmail" name="casper_sns_email" value="${options.casper_sns_email?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsEmail" name="casper_sns_email" value="${options.casper_sns_email!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsGithub" class="col-sm-4 control-label">Github：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsGithub" name="casper_sns_github" value="${options.casper_sns_github?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsGithub" name="casper_sns_github" value="${options.casper_sns_github!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsQQ" class="col-sm-4 control-label">QQ：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsQQ" name="casper_sns_qq" value="${options.casper_sns_qq?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsQQ" name="casper_sns_qq" value="${options.casper_sns_qq!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsTelegram" class="col-sm-4 control-label">Telegram：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsTelegram" name="casper_sns_telegram" value="${options.casper_sns_telegram?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsTelegram" name="casper_sns_telegram" value="${options.casper_sns_telegram!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsCnBLog" class="col-sm-4 control-label">博客园：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsCnBLog" name="casper_sns_cnblog" value="${options.casper_sns_cnblog?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsCnBLog" name="casper_sns_cnblog" value="${options.casper_sns_cnblog!}" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="casperSnsStackoverflow" class="col-sm-4 control-label">Stack Overflow：</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="casperSnsStackoverflow" name="casper_sns_stackoverflow" value="${options.casper_sns_stackoverflow?if_exists}" >
+                                        <input type="text" class="form-control" id="casperSnsStackoverflow" name="casper_sns_stackoverflow" value="${options.casper_sns_stackoverflow!}" >
                                     </div>
                                 </div>
                             </div>

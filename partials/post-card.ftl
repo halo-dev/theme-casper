@@ -14,7 +14,7 @@
                 <h2 class="post-card-title">${post.postTitle}</h2>
             </header>
             <section class="post-card-excerpt">
-                <p>${post.postSummary?if_exists}</p>
+                <p>${post.postSummary!}</p>
             </section>
         </a>
         <footer class="post-card-meta">

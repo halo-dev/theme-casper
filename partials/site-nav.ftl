@@ -2,9 +2,9 @@
     <div class="site-nav-left">
         <#if !is_index??>
             <#if options.blog_logo??>
-                <a class="site-nav-logo" href="${options.blog_url}"><img src="${options.blog_logo}" alt="${options.blog_title}" /></a>
+                <a class="site-nav-logo" href="${options.blog_url!}"><img src="${options.blog_logo!}" alt="${options.blog_title!}" /></a>
             <#else>
-                <a class="site-nav-logo" href="${options.blog_url}">${options.blog_title}</a>
+                <a class="site-nav-logo" href="${options.blog_url!}">${options.blog_title!}</a>
             </#if>
         </#if>
         <@commonTag method="menus">
@@ -84,7 +84,7 @@
                 </a>
             </#if>
         </div>
-        <#if options.casper_sns_rss?default('true')=='true'>
+        <#if (options.casper_sns_rss!'true')=='true'>
         <a class="rss-button" href="/feed.xml" target="_blank" rel="noopener">
             <#include "../partials/icons/rss.ftl">
         </a>
