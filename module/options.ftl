@@ -73,6 +73,20 @@
                                         <input type="text" class="form-control" id="casperGeneralLocation" name="casper_general_location" value="${options.casper_general_location!}" >
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="casperGeneralCodePretty" class="col-sm-4 control-label">代码高亮：</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="casperGeneralCodePretty" name="casper_general_code_pretty">
+                                            <option value="Default" ${((options.casper_general_code_pretty!'Default')=='Default')?string('selected','')}>Default</option>
+                                            <option value="Coy" ${((options.casper_general_code_pretty!)=='Coy')?string('selected','')}>Coy</option>
+                                            <option value="Dark" ${((options.casper_general_code_pretty!)=='Dark')?string('selected','')}>Dark</option>
+                                            <option value="Okaidia" ${((options.casper_general_code_pretty!)=='Okaidia')?string('selected','')}>Okaidia</option>
+                                            <option value="Solarized Light" ${((options.casper_general_code_pretty!)=='Solarized Light')?string('selected','')}>Solarized Light</option>
+                                            <option value="Tomorrow Night" ${((options.casper_general_code_pretty!)=='Tomorrow Night')?string('selected','')}>Tomorrow Night</option>
+                                            <option value="Twilight" ${((options.casper_general_code_pretty!)=='Twilight')?string('selected','')}>Twilight</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="box-footer">
                                 <button type="button" class="btn btn-primary btn-sm pull-right" onclick="saveThemeOptions('casperGeneralOptions')">保存设置</button>

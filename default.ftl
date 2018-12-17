@@ -42,6 +42,11 @@
     <meta name="generator" content="Halo 0.0.7" />
     <link rel="alternate" type="application/rss+xml" title="${options.blog_title}" href="${options.blog_url}/feed.xml" />
 
+    <#if post??>
+    <link rel="stylesheet" type="text/css" href="/${themeName}/assets/prism/css/prism-${options.casper_general_code_pretty!'Default'}.css" />
+    <script type="text/javascript" src="/${themeName}/assets/prism/js/prism.js"></script>
+    </#if>
+
 </head>
 <body class="${body_class}">
 
