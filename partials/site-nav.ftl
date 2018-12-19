@@ -9,8 +9,8 @@
         </#if>
         <@commonTag method="menus">
             <ul class="nav" role="menu">
-                <#list menus as menu>
-                    <li class="nav-${menu.menuName}" role="menuitem"><a href="${menu.menuUrl}">${menu.menuName}</a></li>
+                <#list menus?sort_by('menuSort') as menu>
+                    <li class="nav-${menu.menuName}" role="menuitem"><a href="${menu.menuUrl}" target="${menu.menuTarget!}">${menu.menuName}</a></li>
                 </#list>
             </ul>
         </@commonTag>
