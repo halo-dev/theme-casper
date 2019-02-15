@@ -1,12 +1,12 @@
 <#macro post_card post>
 <article class="post-card post">
     <#if post.postThumbnail??>
-        <a class="post-card-image-link" href="/archives/${post.postUrl}">
+        <a class="post-card-image-link" href="${options.blog_url!}/archives/${post.postUrl}">
             <div class="post-card-image" style="background-image: url(${post.postThumbnail})"></div>
         </a>
     </#if>
     <div class="post-card-content">
-        <a class="post-card-content-link" href="/archives/${post.postUrl}">
+        <a class="post-card-content-link" href="${options.blog_url!}/archives/${post.postUrl}">
             <header class="post-card-header">
                 <#if post.categories?? && post.categories?size gt 0>
                     <span class="post-card-tags">${post.categories[0].cateName}</span>

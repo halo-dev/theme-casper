@@ -23,7 +23,7 @@ into the {body} of the default.hbs template -->
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="${post.postDate?string('yyyy-MM-dd')}">${post.postDate?string('d MMM,yyyy')}</time>
                     <#if post.categories?? && post.categories?size gt 0>
-                    <span class="date-divider">/</span> <a href="/categories/${post.categories[0].cateUrl}">${post.categories[0].cateName}</a>
+                    <span class="date-divider">/</span> <a href="${options.blog_url!}/categories/${post.categories[0].cateUrl}">${post.categories[0].cateName}</a>
                     </#if>
                 </section>
                 <h1 class="post-full-title">${post.postTitle}</h1>
