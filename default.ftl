@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <#-- Styles'n'Scripts -->
-    <link rel="stylesheet" type="text/css" href="/${themeName}/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/${theme.folderName}/assets/built/screen.css" />
 
     <#-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="keywords" content="${keyword}" />
@@ -29,13 +29,13 @@
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${desc}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:image" content="${options.casper_general_cover!'/${themeName}/assets/images/blog-cover.jpg'}" />
+    <meta property="og:image" content="${settings.cover!'/${theme.folderName}/assets/images/blog-cover.jpg'}" />
     <meta property="article:publisher" content="https://www.facebook.com/ghost" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${desc}" />
     <meta name="twitter:url" content="${canonical}" />
-    <meta name="twitter:image" content="${options.casper_general_cover!'/${themeName}/assets/images/blog-cover.jpg'}" />
+    <meta name="twitter:image" content="${settings.cover!'/${theme.folderName}/assets/images/blog-cover.jpg'}" />
     <meta name="twitter:site" content="@tryghost" />
     <meta property="og:image:width" content="2000" />
     <meta property="og:image:height" content="666" />
@@ -43,8 +43,8 @@
     <link rel="alternate" type="application/rss+xml" title="${options.blog_title}" href="${options.blog_url}/feed.xml" />
 
     <#if post??>
-    <link rel="stylesheet" type="text/css" href="/${themeName}/assets/prism/css/prism-${options.casper_general_code_pretty!'Default'}.css" />
-    <script type="text/javascript" src="/${themeName}/assets/prism/js/prism.js"></script>
+    <link rel="stylesheet" type="text/css" href="/${theme.folderName}/assets/prism/css/prism-${settings.code_pretty!'Default'}.css" />
+    <script type="text/javascript" src="/${theme.folderName}/assets/prism/js/prism.js"></script>
     </#if>
 
 </head>
@@ -67,7 +67,7 @@
                     <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
                     <a href="https://twitter.com/tryghost" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                    <a href="https://github.com/ruibaby/halo" target="_blank" rel="noopener">Halo</a>
+                    <a href="https://github.com/halo-dev/halo" target="_blank" rel="noopener">Halo</a>
                 </nav>
             </div>
         </footer>
@@ -94,7 +94,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="/${themeName}/assets/built/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/${theme.folderName}/assets/built/jquery.fitvids.js"></script>
 </#macro>
 
 <#macro scripts>

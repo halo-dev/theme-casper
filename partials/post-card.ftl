@@ -1,20 +1,20 @@
 <#macro post_card post>
 <article class="post-card post">
-    <#if post.postThumbnail??>
-        <a class="post-card-image-link" href="${options.blog_url!}/archives/${post.postUrl}">
-            <div class="post-card-image" style="background-image: url(${post.postThumbnail})"></div>
+    <#if post.thumbnail?? && post.thumbnail!=''>
+        <a class="post-card-image-link" href="${options.blog_url!}/archives/${post.url!}">
+            <div class="post-card-image" style="background-image: url(${post.thumbnail})"></div>
         </a>
     </#if>
     <div class="post-card-content">
-        <a class="post-card-content-link" href="${options.blog_url!}/archives/${post.postUrl}">
+        <a class="post-card-content-link" href="${options.blog_url!}/archives/${post.url!}">
             <header class="post-card-header">
                 <#if post.categories?? && post.categories?size gt 0>
-                    <span class="post-card-tags">${post.categories[0].cateName}</span>
+                    <span class="post-card-tags">${post.categories[0].name}</span>
                 </#if>
-                <h2 class="post-card-title">${post.postTitle}</h2>
+                <h2 class="post-card-title">${post.title}</h2>
             </header>
             <section class="post-card-excerpt">
-                <p>${post.postSummary!}</p>
+                <p>${post.summary!}</p>
             </section>
         </a>
         <footer class="post-card-meta">
@@ -23,11 +23,11 @@
                 <li class="author-list-item">
 
                     <div class="author-name-tooltip">
-                        ${user.userDisplayName}
+                        ${user.nickName!}
                     </div>
 
-                    <#if user.userAvatar??>
-                        <a href="${options.blog_url}" class="static-avatar"><img class="author-profile-image" src="${user.userAvatar}" alt="${user.userDisplayName}" /></a>
+                    <#if user.avatar??>
+                        <a href="${options.blog_url}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickName!}" /></a>
                     <#else>
                         <a href="${options.blog_url}" class="static-avatar author-profile-image">
                             <#include "../partials/icons/avatar.ftl">
@@ -36,7 +36,7 @@
                 </li>
             </ul>
 
-            <span class="reading-time">${post.postDate?string("yyyy-MM-dd")}</span>
+            <span class="reading-time">${post.createTime?string("yyyy-MM-dd")}</span>
 
         </footer>
     </div>

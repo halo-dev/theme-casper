@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="${post.postTitle} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${post.postSummary!}" canonical="${options.blog_url}/p/${post.postUrl}" body_class="page-template">
+<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${post.summary!}" canonical="${options.blog_url}/p/${post.url!}" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
@@ -15,26 +15,27 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer">
     <div class="inner">
 
-        <article class="post-full post page <#if !post.postThumbnail??>no-image</#if>">
+        <article class="post-full post page <#if !post.thumbnail??>no-image</#if>">
 
             <header class="post-full-header">
-                <h1 class="post-full-title">${post.postTitle}</h1>
+                <h1 class="post-full-title">${post.title}</h1>
             </header>
 
-            <#if post.postThumbnail??>
-            <figure class="post-full-image" style="background-image: url(${post.postThumbnail})">
+            <#if post.thumbnail?? && post.thumbnail!=''>
+            <figure class="post-full-image" style="background-image: url(${post.thumbnail})">
             </figure>
             </#if>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    ${post.postContent}
+                    ${post.formatContent!}
                 </div>
             </section>
 
             <section class="post-full-comments">
             <#-- If you want to embed comments, this is a good place to do it! -->
                 <#include "module/comment.ftl">
+                <@comment id="${post.id}" type="sheet" />
             </section>
 
         </article>

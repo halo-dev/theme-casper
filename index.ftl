@@ -1,11 +1,11 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_desc!}" canonical="${options.blog_url}" body_class="home-template">
+<@default title="${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url}" body_class="home-template">
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
 
 <#-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer <#if (options.casper_general_cover!'/${themeName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${options.casper_general_cover!'/${themeName}/assets/images/blog-cover.jpg'})<#else>no-cover</#if>">
+<header class="site-header outer <#if (settings.cover!'/${theme.folderName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover!'/${theme.folderName}/assets/images/blog-cover.jpg'})<#else>no-cover</#if>">
     <div class="inner">
         <div class="site-header-content">
             <h1 class="site-title">
@@ -15,7 +15,7 @@ into the {body} of the default.hbs template -->
                     ${options.blog_title!}
                 </#if>
             </h1>
-            <h2 class="site-description">${user.userDesc!}</h2>
+            <h2 class="site-description">${user.description!}</h2>
         </div>
         <#include "partials/site-nav.ftl">
     </div>
@@ -44,7 +44,7 @@ into the {body} of the default.hbs template -->
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="/${themeName}/assets/built/infinitescroll.js"></script>
+    <script src="/${theme.folderName}/assets/built/infinitescroll.js"></script>
     </#if>
     <#-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
     <#-- {{ghost_foot}} -->

@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="文章归档 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_desc!}" canonical="${options.blog_url}/archives" body_class="page-template">
+<@default title="文章归档 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url}/archives" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
@@ -15,14 +15,14 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer">
     <div class="inner">
 
-        <article class="post-full post page <#if !options.casper_general_archives_cover??>no-image</#if>">
+        <article class="post-full post page <#if !settings.archives_cover??>no-image</#if>">
 
             <header class="post-full-header">
                 <h1 class="post-full-title">文章归档</h1>
             </header>
 
-            <#if options.casper_general_archives_cover??>
-            <figure class="post-full-image" style="background-image: url(${options.casper_general_archives_cover})">
+            <#if settings.archives_cover??>
+            <figure class="post-full-image" style="background-image: url(${settings.archives_cover})">
             </figure>
             </#if>
 
@@ -30,39 +30,39 @@ into the {body} of the default.hbs template -->
                 <div class="post-content">
                     <h1>分类</h1>
                     <ul>
-                        <@commonTag method="categories">
+                        <@categoryTag method="list">
                             <#list categories as category>
                                 <li>
-                                    <a href="${options.blog_url}/categories/${category.cateUrl}">${category.cateName}(${category.posts?size})</a>
+                                    <a href="${options.blog_url}/categories/${category.slugName}">${category.name}(${category.postCount!0})</a>
                                 </li>
                             </#list>
-                        </@commonTag>
+                        </@categoryTag>
                     </ul>
 
                     <h1>标签</h1>
                     <ul>
-                        <@commonTag method="tags">
+                        <@tagTag method="list">
                             <#list tags as tag>
                                 <li>
-                                    <a href="${options.blog_url}/tags/${tag.tagUrl}">${tag.tagName}(${tag.posts?size})</a>
+                                    <a href="${options.blog_url}/tags/${tag.slugName}">${tag.name}(${tag.postCount!0})</a>
                                 </li>
                             </#list>
-                        </@commonTag>
+                        </@tagTag>
                     </ul>
 
                     <h1>归档</h1>
-                    <@articleTag method="archives">
+                    <@postTag method="archiveMonth">
                         <#list archives as archive>
                             <h2>${archive.year}年${archive.month}月</h2>
                             <ul class="listing">
-                                <#list archive.posts?sort_by("postDate")?reverse as post>
+                                <#list archive.posts?sort_by("createTime")?reverse as post>
                                     <li>
-                                        ${post.postDate?string('MM月dd日')}：<a href="${options.blog_url}/archives/${post.postUrl}">${post.postTitle}</a>
+                                        ${post.createTime?string('MM月dd日')}：<a href="${options.blog_url}/archives/${post.url!}">${post.title}</a>
                                     </li>
                                 </#list>
                             </ul>
                         </#list>
-                    </@articleTag>
+                    </@postTag>
                 </div>
             </section>
 

@@ -1,18 +1,18 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="分类：${category.cateName!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_desc!}" canonical="${options.blog_url}/categories/${category.cateName}" body_class="tag-template">
+<@default title="分类：${category.name!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url}/categories/${category.name}" body_class="tag-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer <#if options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${options.casper_general_cover?default('/${themeName}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
+<header class="site-header outer <#if settings.cover?default('/${theme.folderName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover?default('/${theme.folderName}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
     <div class="inner">
         <#include "partials/site-nav.ftl">
         <div class="site-header-content">
-            <h1 class="site-title">分类：${category.cateName}</h1>
+            <h1 class="site-title">分类：${category.name}</h1>
             <h2 class="site-description">
-                <#if category.cateDesc?? && (category.cateDesc!'')!=''>
-                    ${category.cateDesc}
+                <#if category.description?? && (category.description!'')!=''>
+                    ${category.description}
                 <#else>
-                    ${category.posts?size}篇文章
+                    ${category.postCount?size}篇文章
                 </#if>
             </h2>
         </div>
@@ -39,6 +39,6 @@
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="/${themeName}/assets/built/infinitescroll.js"></script>
+    <script src="/${theme.folderName}/assets/built/infinitescroll.js"></script>
     </#if>
 </@scripts>

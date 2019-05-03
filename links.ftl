@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="友情链接 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_desc!}" canonical="${options.blog_url}/links" body_class="page-template">
+<@default title="友情链接 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url}/links" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
@@ -15,27 +15,27 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer">
     <div class="inner">
 
-        <article class="post-full post page <#if !options.casper_general_links_cover??>no-image</#if>">
+        <article class="post-full post page <#if !settings.links_cover??>no-image</#if>">
 
             <header class="post-full-header">
                 <h1 class="post-full-title">友情链接</h1>
             </header>
 
-            <#if options.casper_general_links_cover??>
-            <figure class="post-full-image" style="background-image: url(${options.casper_general_links_cover})">
+            <#if settings.links_cover??>
+            <figure class="post-full-image" style="background-image: url(${settings.links_cover})">
             </figure>
             </#if>
 
             <section class="post-full-content">
                 <div class="post-content">
                     <ul>
-                        <@commonTag method="links">
+                        <@linkTag method="list">
                             <#list links as link>
                                 <li>
-                                    <a href="${link.linkUrl}" target="_blank">${link.linkName}</a><#if link.linkDesc != ''> - ${link.linkDesc}</#if>
+                                    <a href="${link.url}" target="_blank">${link.name}</a><#if link.description != ''> - ${link.description!}</#if>
                                 </li>
                             </#list>
-                        </@commonTag>
+                        </@linkTag>
                     </ul>
                 </div>
             </section>
