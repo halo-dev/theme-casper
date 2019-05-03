@@ -6,8 +6,8 @@
     <div class="inner">
         <#include "partials/site-nav.ftl">
         <div class="site-header-content">
-            <img class="author-profile-image" src="${user.avatar!}" alt="${user.nickName!}" />
-            <h1 class="site-title">${user.nickName!}</h1>
+            <img class="author-profile-image" src="${user.avatar!}" alt="${user.nickname!}" />
+            <h1 class="site-title">${user.nickname!}</h1>
             <#if user.description??>
                 <h2 class="author-bio">${user.description!}</h2>
             </#if>

@@ -23,11 +23,11 @@
                 <li class="author-list-item">
 
                     <div class="author-name-tooltip">
-                        ${user.nickName!}
+                        ${user.nickname!}
                     </div>
 
                     <#if user.avatar??>
-                        <a href="${options.blog_url}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickName!}" /></a>
+                        <a href="${options.blog_url}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickname!}" /></a>
                     <#else>
                         <a href="${options.blog_url}" class="static-avatar author-profile-image">
                             <#include "../partials/icons/avatar.ftl">

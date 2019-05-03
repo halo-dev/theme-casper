@@ -2,14 +2,14 @@
 
 <section class="author-card">
     <#if user.avatar??>
-        <img class="author-profile-image" src="${user.avatar!}" alt="${user.nickName!}" />
+        <img class="author-profile-image" src="${user.avatar!}" alt="${user.nickname!}" />
     <#else >
         <span class="avatar-wrapper">
             <#include "icons/avatar.ftl">
         </span>
     </#if>
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="${options.blog_url!}">${user.nickName!}</a></h4>
+        <h4 class="author-card-name"><a href="${options.blog_url!}">${user.nickname!}</a></h4>
         <#if user.description??>
             <p>${user.description}</p>
         <#else>
