@@ -53,7 +53,7 @@ into the {body} of the default.hbs template -->
                     <h1>归档</h1>
                     <@postTag method="archiveMonth">
                         <#list archives as archive>
-                            <h2>${archive.year}年${archive.month}月</h2>
+                            <h2>${archive.year?c}年${archive.month}月</h2>
                             <ul class="listing">
                                 <#list archive.posts?sort_by("createTime")?reverse as post>
                                     <li>
