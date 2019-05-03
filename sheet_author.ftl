@@ -16,7 +16,7 @@
                 <div class="author-location">${settings.location} <span class="bull">&bull;</span></div>
             </#if>
             <div class="author-stats">
-            <@articleTag method="postsCount">${postsCount}</@articleTag> 篇文章 <span class="bull">&bull;</span>
+            <@postTag method="count">${count}</@postTag> 篇文章 <span class="bull">&bull;</span>
             </div>
             <a class="social-link social-link-rss" href="/atom.xml" target="_blank" rel="noopener"><#include "partials/icons/rss.ftl"></a>
             </div>
