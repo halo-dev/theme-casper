@@ -99,6 +99,10 @@ sns:
       name: cnblog
       label: 博客园
       type: text
+    github:
+      name: github
+      label: Github
+      type: text
     stackoverflow:
       name: stackoverflow
       label: Stack Overflow
