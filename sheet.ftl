@@ -35,7 +35,7 @@ into the {body} of the default.hbs template -->
             <section class="post-full-comments">
             <#-- If you want to embed comments, this is a good place to do it! -->
                 <#include "module/comment.ftl">
-                <@comment id="${post.id}" type="sheet" />
+                <@comment post=sheet type="sheet" />
             </section>
 
         </article>
