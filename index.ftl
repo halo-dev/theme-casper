@@ -1,6 +1,6 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url}" body_class="home-template">
+<@default title="${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url!}" body_class="home-template">
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
 

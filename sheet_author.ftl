@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="${post.title!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url}/p/${post.url!}" body_class="page-template">
+<@default title="${post.title!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url!}/p/${post.url!}" body_class="page-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- Everything inside the #author tags pulls data from the author -->
 <header class="site-header outer <#if settings.cover?default('/${theme.folderName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover?default('/${theme.folderName}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">

@@ -27,9 +27,9 @@
                     </div>
 
                     <#if user.avatar??>
-                        <a href="${options.blog_url}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickname!}" /></a>
+                        <a href="${options.blog_url!}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickname!}" /></a>
                     <#else>
-                        <a href="${options.blog_url}" class="static-avatar author-profile-image">
+                        <a href="${options.blog_url!}" class="static-avatar author-profile-image">
                             <#include "../partials/icons/avatar.ftl">
                         </a>
                     </#if>

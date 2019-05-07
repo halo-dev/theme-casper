@@ -1,7 +1,7 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
 <#include "partials/floating-header.ftl">
-<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!},${tagWords!}" desc="${post.summary!}" canonical="${options.blog_url}/archives/${post.url!}" body_class="post-template">
+<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!},${tagWords!}" desc="${post.summary!}" canonical="${options.blog_url!}/archives/${post.url!}" body_class="post-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->

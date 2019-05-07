@@ -39,7 +39,7 @@
     <meta property="og:image:width" content="2000" />
     <meta property="og:image:height" content="666" />
     <meta name="generator" content="Halo 0.0.7" />
-    <link rel="alternate" type="application/rss+xml" title="${options.blog_title}" href="${options.blog_url}/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="${options.blog_title!}" href="${options.blog_url!}/feed.xml" />
 
     <#if post??>
     <link rel="stylesheet" type="text/css" href="/${theme.folderName}/assets/prism/css/prism-${settings.code_pretty!'Default'}.css" />
@@ -58,11 +58,11 @@
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
                 <section class="copyright">
-                    <a href="${options.blog_url}">${options.blog_title}</a> &copy; ${current?substring(0,4)}
+                    <a href="${options.blog_url!}">${options.blog_title!}</a> &copy; ${current?substring(0,4)}
                     <@common.footer_info />
                 </section>
                 <nav class="site-footer-nav">
-                    <a href="${options.blog_url}">Latest Posts</a>
+                    <a href="${options.blog_url!}">Latest Posts</a>
                     <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
                     <a href="https://twitter.com/tryghost" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
