@@ -9,7 +9,7 @@
         <div class="site-header-content">
             <h1 class="site-title">标签：${tag.name}</h1>
             <h2 class="site-description">
-                ${tag.posts?size}篇文章
+                ${posts?size}篇文章
             </h2>
         </div>
     </div>

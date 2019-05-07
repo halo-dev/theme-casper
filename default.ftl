@@ -54,11 +54,10 @@
         <#-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
         <#nested >
         <#-- The footer at the very bottom of the screen -->
-        <#assign current="${.now}">
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
                 <section class="copyright">
-                    <a href="${options.blog_url!}">${options.blog_title!}</a> &copy; ${current?substring(0,4)}
+                    <a href="${options.blog_url!}">${options.blog_title!}</a> &copy; ${.now?string('yyyy')}
                     <@common.footer_info />
                 </section>
                 <nav class="site-footer-nav">
