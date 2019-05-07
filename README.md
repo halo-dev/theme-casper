@@ -24,6 +24,6 @@ This theme can renders `Home(/)`,`Article page(/archives/${postUrl})`,`Archives(
 
 ## Instructions
 
-1. Clone or [download](https://github.com/ruibaby/casper-halo/releases).
+1. Clone or [download](https://github.com/halo-dev/casper-halo/releases).
 2. After compressing to a zip archive, you can use it directly in the background settings of the background.
 
