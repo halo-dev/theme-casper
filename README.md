@@ -2,6 +2,8 @@
 
 > A Halo theme, waterfall streaming theme.
 
+# 主分支的代码已经不适用于 Halo 0.x ，请移步 release 下载旧版本
+
 ## Description
 
 The original author of this theme is [Ghost](https://github.com/TryGhost),Thanks very much for making such a great theme.
