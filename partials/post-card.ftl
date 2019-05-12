@@ -2,7 +2,7 @@
 <article class="post-card post">
     <#if post.thumbnail?? && post.thumbnail!=''>
         <a class="post-card-image-link" href="${options.blog_url!}/archives/${post.url!}">
-            <div class="post-card-image" style="background-image: url(${post.thumbnail})"></div>
+            <div class="post-card-image" style="background-image: url(${post.thumbnail!})"></div>
         </a>
     </#if>
     <div class="post-card-content">
