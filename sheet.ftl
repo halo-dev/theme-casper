@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${post.summary!}" canonical="${options.blog_url!}/p/${post.url!}" body_class="page-template">
+<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${post.summary!}" canonical="${ctx!}/p/${post.url!}" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->

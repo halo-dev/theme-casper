@@ -1,9 +1,9 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="标签：${tag.name} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${options.blog_url!}/tags/${tag.name}" body_class="tag-template">
+<@default title="标签：${tag.name} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${ctx!}/tags/${tag.name}" body_class="tag-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer <#if (settings.cover!'/${theme.folderName}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover!'/${theme.folderName}/assets/images/blog-cover.jpg'})<#else>no-cover</#if>">
+<header class="site-header outer <#if (settings.cover!'/${static!}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover!'/${static!}/assets/images/blog-cover.jpg'})<#else>no-cover</#if>">
     <div class="inner">
         <#include "partials/site-nav.ftl">
         <div class="site-header-content">
@@ -35,6 +35,6 @@
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="/${theme.folderName}/assets/built/infinitescroll.js"></script>
+    <script src="/${static!}/assets/built/infinitescroll.js"></script>
     </#if>
 </@scripts>

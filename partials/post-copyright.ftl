@@ -8,7 +8,7 @@
         </li>
         <li class="post-copyright-link" style="margin: 0">
             <strong>本文链接：</strong>
-            <a href="${options.blog_url!}/archives/${post.url!}" title="${post.title}">${options.blog_url!}/archives/${post.url!}</a>
+            <a href="${ctx!}/archives/${post.url!}" title="${post.title}">${ctx!}/archives/${post.url!}</a>
         </li>
         <li class="post-copyright-license" style="margin: 0">
             <strong>版权声明：</strong>
