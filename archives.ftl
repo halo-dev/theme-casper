@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="文章归档 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${ctx!}/archives" body_class="page-template">
+<@default title="文章归档 | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${context!}/archives" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
@@ -33,7 +33,7 @@ into the {body} of the default.hbs template -->
                         <@categoryTag method="list">
                             <#list categories as category>
                                 <li>
-                                    <a href="${ctx!}/categories/${category.slugName}">${category.name}(${category.postCount!0})</a>
+                                    <a href="${context!}/categories/${category.slugName}">${category.name}(${category.postCount!0})</a>
                                 </li>
                             </#list>
                         </@categoryTag>
@@ -44,7 +44,7 @@ into the {body} of the default.hbs template -->
                         <@tagTag method="list">
                             <#list tags as tag>
                                 <li>
-                                    <a href="${ctx!}/tags/${tag.slugName}">${tag.name}(${tag.postCount!0})</a>
+                                    <a href="${context!}/tags/${tag.slugName}">${tag.name}(${tag.postCount!0})</a>
                                 </li>
                             </#list>
                         </@tagTag>
@@ -57,7 +57,7 @@ into the {body} of the default.hbs template -->
                             <ul class="listing">
                                 <#list archive.posts?sort_by("createTime")?reverse as post>
                                     <li>
-                                        ${post.createTime?string('MM月dd日')}：<a href="${ctx!}/archives/${post.url!}">${post.title}</a>
+                                        ${post.createTime?string('MM月dd日')}：<a href="${context!}/archives/${post.url!}">${post.title}</a>
                                     </li>
                                 </#list>
                             </ul>
