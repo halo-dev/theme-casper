@@ -1,6 +1,4 @@
-<h1><a href="#" target="_blank">Casper-Halo</a></h1>
-
-> A Halo theme, waterfall streaming theme.
+<h1><a href="https://github.com/halo-dev" target="_blank">halo-theme-casper</a></h1>
 
 # 主分支的代码已经不适用于 Halo 0.x ，请移步 release 下载旧版本
 
@@ -12,20 +10,16 @@ Original subject address：[https://github.com/TryGhost/Casper](https://github.c
 
 ## Preview screenshot
 
-![](screenshots/index.png)
+![index](https://i.loli.net/2019/05/29/5ced6b8f66c0298030.png)
 
-![](screenshots/option.png)
+![settings](https://i.loli.net/2019/05/29/5ced6b9178edf29128.png)
 
 ## Preview address
 
 [Ghost](https://demo.ghost.io)
 
-## Attention
-
-This theme can renders `Home(/)`,`Article page(/archives/${postUrl})`,`Archives(/archives)`,`Links(/links)`,`Custom page(/p/${postUrl})`,`Category(/categories/${cateUrl})`,`Tag(/tags/${tagUrl})`.
-
 ## Instructions
 
-1. Clone or [download](https://github.com/halo-dev/casper-halo/releases).
+1. Clone or [download](https://github.com/halo-dev/halo-theme-casper/releases).
 2. After compressing to a zip archive, you can use it directly in the background settings of the background.
 
