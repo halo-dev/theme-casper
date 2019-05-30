@@ -41,7 +41,7 @@
                 </div>
             </section>
 
-            <section class="post-full-comments">
+            <section class="post-full-comments" style="padding: 5vw 7vw 0;">
             <#-- If you want to embed comments, this is a good place to do it! -->
                 <#include "module/comment.ftl">
                 <@comment post=sheet type="sheet" />
