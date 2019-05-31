@@ -54,7 +54,7 @@ into the {body} of the default.hbs template -->
 
             </footer>
 
-            <section class="post-full-comments" style="padding: 5vw 7vw 0;">
+            <section class="post-full-comments" style="padding: 0 100px;">
                 <#-- If you want to embed comments, this is a good place to do it! -->
                 <#include "module/comment.ftl">
                 <@comment post=post type="post" />
