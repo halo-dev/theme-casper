@@ -38,7 +38,6 @@
     <meta name="twitter:site" content="@tryghost" />
     <meta property="og:image:width" content="2000" />
     <meta property="og:image:height" content="666" />
-    <meta name="generator" content="Halo 0.0.7" />
     <link rel="alternate" type="application/rss+xml" title="${options.blog_title!}" href="${context!}/feed.xml" />
 
     <#if post??>

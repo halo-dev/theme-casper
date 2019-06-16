@@ -32,7 +32,7 @@ into the {body} of the default.hbs template -->
                 </div>
             </section>
 
-            <section class="post-full-comments" style="padding: 0 100px;">
+            <section class="post-full-comments">
             <#-- If you want to embed comments, this is a good place to do it! -->
                 <#include "module/comment.ftl">
                 <@comment post=sheet type="sheet" />
