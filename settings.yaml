@@ -4,16 +4,16 @@ general:
     cover:
       name: cover
       label: 首页背景图
-      type: text
+      type: attachment
       default: '/casper/assets/images/blog-cover.jpg'
     links_cover:
       name: links_cover
       label: 友情链接页面背景图
-      type: text
+      type: attachment
     archives_cover:
       name: archives_cover
       label: 归档页面背景图
-      type: text
+      type: attachment
     post_copyright:
       name: post_copyright
       label: 文章版权信息
