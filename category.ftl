@@ -12,7 +12,7 @@
                 <#if category.description?? && (category.description!'')!=''>
                     ${category.description}
                 <#else>
-                    ${category.postCount!0}篇文章
+                     ${posts.totalElements!0}篇文章
                 </#if>
             </h2>
         </div>
