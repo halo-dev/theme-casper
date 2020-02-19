@@ -64,7 +64,7 @@
                     <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
                     <a href="https://twitter.com/tryghost" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                    <a href="https://github.com/halo-dev/halo" target="_blank" rel="noopener">Halo</a>
+                    <a href="https://halo.run" target="_blank" rel="noopener">Halo</a>
                 </nav>
             </div>
         </footer>
