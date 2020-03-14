@@ -1,8 +1,8 @@
 <#include "default.ftl">
-<@default title="${sheet.title!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${context!}/s/${sheet.url!}" body_class="page-template">
+<@default title="${sheet.title!} | ${blog_title!}" canonical="${sheet.fullPath!}" body_class="page-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- Everything inside the #author tags pulls data from the author -->
-<header class="site-header outer <#if settings.cover?default('${static!}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover?default('${static!}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
+<header class="site-header outer <#if settings.cover?default('${theme_base!}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover?default('${theme_base!}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
     <div class="inner">
         <#include "partials/site-nav.ftl">
         <div class="site-header-content">
@@ -18,7 +18,7 @@
             <div class="author-stats">
             <@postTag method="count">${count}</@postTag> 篇文章 <span class="bull">&bull;</span>
             </div>
-            <a class="social-link social-link-rss" href="/atom.xml" target="_blank" rel="noopener"><#include "partials/icons/rss.ftl"></a>
+            <a class="social-link social-link-rss" href="${atom_url!}" target="_blank" rel="noopener"><#include "partials/icons/rss.ftl"></a>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
         <article class="post-full post page no-image">
 
             <header class="post-full-header">
-                <h1 class="post-full-title">${post.title}</h1>
+                <h1 class="post-full-title">${post.title!}</h1>
             </header>
 
             <section class="post-full-content">

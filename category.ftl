@@ -1,15 +1,15 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
-<@default title="分类：${category.name!} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${options.seo_description!}" canonical="${context!}/categories/${category.name}" body_class="tag-template">
+<@default title="分类：${category.name!} | ${blog_title!}" canonical="${category.fullPath!}" body_class="tag-template">
 <#-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 <#-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer <#if settings.cover?default('${static!}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover?default('${static!}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
+<header class="site-header outer <#if settings.cover?default('${theme_base!}/assets/images/blog-cover.jpg') != ''>" style="background-image: url(${settings.cover?default('${theme_base!}/assets/images/blog-cover.jpg')})<#else>no-cover</#if>">
     <div class="inner">
         <#include "partials/site-nav.ftl">
         <div class="site-header-content">
             <h1 class="site-title">分类：${category.name}</h1>
             <h2 class="site-description">
-                <#if category.description?? && (category.description!'')!=''>
+                <#if category.description?? && category.description!=''>
                     ${category.description}
                 <#else>
                      ${posts.totalElements!0}篇文章
@@ -39,6 +39,6 @@
         // we reached the last page already.
         var maxPages = parseInt('${posts.totalPages}');
     </script>
-    <script src="${static!}/assets/built/infinitescroll.js"></script>
+    <script src="${theme_base!}/assets/built/infinitescroll.js"></script>
     </#if>
 </@scripts>

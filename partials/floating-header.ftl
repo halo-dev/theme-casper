@@ -1,11 +1,11 @@
 <#macro floating_header title>
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="${context!}">
-            <#if options.blog_logo??>
-                <img src="${options.blog_logo}" alt="${options.blog_title!} icon" />
+        <a href="${blog_url!}">
+            <#if blog_logo?? && blog_logo!=''>
+                <img src="${blog_logo!}" alt="${blog_title!} icon" />
             </#if>
-            <span>${options.blog_title!}</span>
+            <span>${blog_title!}</span>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
