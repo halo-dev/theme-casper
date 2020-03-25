@@ -1,5 +1,5 @@
 <#include "default.ftl">
-<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!}" desc="${post.summary!}" canonical="${context!}/s/${post.url!}" body_class="page-template">
+<@default title="${post.title!} | ${blog_title!}" canonical="${sheet.fullPath!}" body_class="page-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
@@ -18,7 +18,7 @@ into the {body} of the default.hbs template -->
         <article class="post-full post page <#if !post.thumbnail??>no-image</#if>">
 
             <header class="post-full-header">
-                <h1 class="post-full-title">${post.title}</h1>
+                <h1 class="post-full-title">${post.title!}</h1>
             </header>
 
             <#if post.thumbnail?? && post.thumbnail!=''>

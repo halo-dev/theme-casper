@@ -1,17 +1,17 @@
 <#macro post_card post>
 <article class="post-card post">
     <#if post.thumbnail?? && post.thumbnail!=''>
-        <a class="post-card-image-link" href="${context!}/archives/${post.url!}">
+        <a class="post-card-image-link" href="${post.fullPath!}">
             <div class="post-card-image" style="background-image: url(${post.thumbnail!})"></div>
         </a>
     </#if>
     <div class="post-card-content">
-        <a class="post-card-content-link" href="${context!}/archives/${post.url!}">
+        <a class="post-card-content-link" href="${post.fullPath!}">
             <header class="post-card-header">
                 <#if post.categories?? && post.categories?size gt 0>
                     <span class="post-card-tags">${post.categories[0].name}</span>
                 </#if>
-                <h2 class="post-card-title">${post.title}</h2>
+                <h2 class="post-card-title">${post.title!}</h2>
             </header>
             <section class="post-card-excerpt">
                 <p>${post.summary!}</p>
@@ -27,9 +27,9 @@
                     </div>
 
                     <#if user.avatar??>
-                        <a href="${context!}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickname!}" /></a>
+                        <a href="${blog_url!}" class="static-avatar"><img class="author-profile-image" src="${user.avatar}" alt="${user.nickname!}" /></a>
                     <#else>
-                        <a href="${context!}" class="static-avatar author-profile-image">
+                        <a href="${blog_url!}" class="static-avatar author-profile-image">
                             <#include "../partials/icons/avatar.ftl">
                         </a>
                     </#if>

@@ -1,7 +1,7 @@
 <#include "default.ftl">
 <#include "partials/post-card.ftl">
 <#include "partials/floating-header.ftl">
-<@default title="${post.title} | ${options.blog_title!}" keyword="${options.seo_keywords!},${tagWords!}" desc="${post.summary!}" canonical="${context!}/archives/${post.url!}" body_class="post-template">
+<@default title="${post.title!} | ${blog_title!}" canonical="${post.fullPath!}" body_class="post-template">
 
 <#-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template -->
@@ -23,10 +23,10 @@ into the {body} of the default.hbs template -->
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="${post.createTime?string('yyyy-MM-dd')}">${post.createTime?string('d MMM,yyyy')}</time>
                     <#if post.categories?? && post.categories?size gt 0>
-                    <span class="date-divider">/</span> <a href="${context!}/categories/${post.categories[0].slugName}">${post.categories[0].name}</a>
+                    <span class="date-divider">/</span> <a href="${post.categories[0].fullPath!}">${post.categories[0].name}</a>
                     </#if>
                 </section>
-                <h1 class="post-full-title">${post.title}</h1>
+                <h1 class="post-full-title">${post.title!}</h1>
             </header>
 
             <#if post.thumbnail?? && post.thumbnail!=''>
@@ -117,7 +117,7 @@ into the {body} of the default.hbs template -->
 </aside>
 
 <#-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
-<@floating_header title="${post.title}"></@floating_header>
+<@floating_header title="${post.title!}"></@floating_header>
 
 </@default>
 <@scripts>

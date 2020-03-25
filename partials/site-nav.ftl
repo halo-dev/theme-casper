@@ -1,10 +1,10 @@
 <nav class="site-nav">
     <div class="site-nav-left">
         <#if !is_index??>
-            <#if options.blog_logo??>
-                <a class="site-nav-logo" href="${context!}"><img src="${options.blog_logo!}" alt="${options.blog_title!}" /></a>
+            <#if blog_logo?? && blog_logo!=''>
+                <a class="site-nav-logo" href="${blog_url!}"><img src="${blog_logo!}" alt="${blog_title!}" /></a>
             <#else>
-                <a class="site-nav-logo" href="${context!}">${options.blog_title!}</a>
+                <a class="site-nav-logo" href="${blog_url!}">${blog_title!}</a>
             </#if>
         </#if>
         <@menuTag method="list">
@@ -85,7 +85,7 @@
             </#if>
         </div>
         <#if settings.rss!true>
-        <a class="rss-button" href="/feed.xml" target="_blank" rel="noopener">
+        <a class="rss-button" href="${rss_url!}" target="_blank" rel="noopener">
             <#include "../partials/icons/rss.ftl">
         </a>
         </#if>
