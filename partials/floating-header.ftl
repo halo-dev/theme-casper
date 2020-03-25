@@ -12,11 +12,11 @@
     <div class="floating-header-title">${title}</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <#include "icons/point.ftl"></div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=${title}&amp;url=${context!}"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=${title}&amp;url=${blog_url!}"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <#include "icons/twitter.ftl">
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=${context!}"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=${blog_url!}"
            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <#include "icons/facebook.ftl">
         </a>
