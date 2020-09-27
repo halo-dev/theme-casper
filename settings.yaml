@@ -5,7 +5,7 @@ general:
       name: cover
       label: 首页背景图
       type: attachment
-      default: '/casper/assets/images/blog-cover.jpg'
+      default: '/themes/ghost_casper/assets/images/blog-cover.jpg'
     links_cover:
       name: links_cover
       label: 友情链接页面背景图
@@ -67,34 +67,42 @@ sns:
       name: twitter
       label: Twitter
       type: text
+       placeholder: '只需填入 Twitter 用户名即可'
     facebook:
       name: facebook
       label: Facebook
       type: text
+      placeholder: '只需填入 Facebook 用户名即可'
     instagram:
       name: instagram
       label: Instagram
       type: text
+      placeholder: '只需填入 Instagram 用户名即可'
     dribbble:
       name: dribbble
       label: Dribbble
       type: text
+      placeholder: '只需填入 Dribbble 用户名即可'
     weibo:
       name: weibo
       label: 微博
       type: text
+      placeholder: '只需填入微博 Id 即可'
     email:
       name: email
       label: Email
       type: text
+      placeholder: '只需填入邮箱地址即可'
     qq:
       name: qq
       label: QQ
       type: text
+      placeholder: '只需填入 Github 用户名即可'
     telegram:
       name: telegram
       label: Telegram
       type: text
+      placeholder: '只需填入 Telegram Id 即可'
     cnblog:
       name: cnblog
       label: 博客园
