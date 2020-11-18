@@ -67,7 +67,7 @@ sns:
       name: twitter
       label: Twitter
       type: text
-       placeholder: '只需填入 Twitter 用户名即可'
+      placeholder: '只需填入 Twitter 用户名即可'
     facebook:
       name: facebook
       label: Facebook
