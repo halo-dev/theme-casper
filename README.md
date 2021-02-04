@@ -1,7 +1,5 @@
 <h1><a href="https://github.com/halo-dev" target="_blank">halo-theme-casper</a></h1>
 
-# 主分支的代码已经不适用于 Halo 0.x ，请移步 release 下载旧版本
-
 ## Description
 
 The original author of this theme is [Ghost](https://github.com/TryGhost),Thanks very much for making such a great theme.
