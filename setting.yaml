@@ -1,0 +1,103 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: halo-setting-casper
+spec:
+  forms:
+    - group: general
+      label: 基础设置
+      formSchema:
+        - $formkit: text
+          name: cover
+          label: 首页背景图
+          value: /themes/ghost_casper/assets/images/blog-cover.jpg
+        - $formkit: text
+          name: links_cover
+          label: 友情链接页面背景图
+        - $formkit: text
+          name: archives_cover
+          label: 归档页面背景图
+        - $formkit: radio
+          name: post_copyright
+          label: 文章版权信息
+          value: true
+          options:
+            - value: true
+              label: 开启
+            - value: false
+              label: 关闭
+        - $formkit: text
+          name: location
+          label: 所在地
+        - $formkit: select
+          name: code_pretty
+          label: 文章代码高亮主题
+          value: Default
+          options:
+            - value: Default
+              label: Default
+            - value: Coy
+              label: Coy
+            - value: Dark
+              label: Dark
+            - value: Okaidia
+              label: Okaidia
+            - value: Solarized Light
+              label: Solarized Light
+            - value: Tomorrow Night
+              label: Tomorrow Night
+            - value: Twilight
+              label: Twilight
+    - group: sns
+      label: 社交设置
+      formSchema:
+        - $formkit: radio
+          name: rss
+          label: RSS
+          value: true
+          options:
+            - value: true
+              label: 开启
+            - value: false
+              label: 关闭
+        - $formkit: text
+          name: twitter
+          label: Twitter
+          placeholder: 只需填入 Twitter 用户名即可
+        - $formkit: text
+          name: facebook
+          label: Facebook
+          placeholder: 只需填入 Facebook 用户名即可
+        - $formkit: text
+          name: instagram
+          label: Instagram
+          placeholder: 只需填入 Instagram 用户名即可
+        - $formkit: text
+          name: dribbble
+          label: Dribbble
+          placeholder: 只需填入 Dribbble 用户名即可
+        - $formkit: text
+          name: weibo
+          label: 微博
+          placeholder: 只需填入微博 Id 即可
+        - $formkit: text
+          name: email
+          label: Email
+          placeholder: 只需填入邮箱地址即可
+        - $formkit: text
+          name: qq
+          label: QQ
+          placeholder: 只需填入 Github 用户名即可
+        - $formkit: text
+          name: telegram
+          label: Telegram
+          placeholder: 只需填入 Telegram Id 即可
+        - $formkit: text
+          name: cnblog
+          label: 博客园
+        - $formkit: text
+          name: github
+          label: Github
+        - $formkit: text
+          name: stackoverflow
+          label: Stack Overflow

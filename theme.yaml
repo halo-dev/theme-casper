@@ -1,11 +1,17 @@
-id: ghost_casper
-name: Casper
-author:
-  name: Ghost
-  website: https://ghost.org
-description:
-logo: https://avatars1.githubusercontent.com/u/2178663?s=200&v=4
-website: https://github.com/halo-dev/halo-theme-casper
-repo: https://github.com/halo-dev/halo-theme-casper
-version: 1.8
-require: 1.3.0
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+spec:
+  displayName: Casper
+  author:
+    name: Ghost
+    website: https://ghost.org
+  description: null
+  logo: https://avatars1.githubusercontent.com/u/2178663?s=200&v=4
+  website: https://github.com/halo-dev/halo-theme-casper
+  repo: https://github.com/halo-dev/halo-theme-casper
+  settingName: halo-setting-casper
+  configMapName: halo-map-casper
+  version: 0.0.0
+  require: "2.0"
+metadata:
+  name: halo-theme-casper
