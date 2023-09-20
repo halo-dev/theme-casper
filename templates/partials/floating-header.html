@@ -1,4 +1,4 @@
-<div class="floating-header">
+<div class="floating-header" th:fragment="header(post)">
     <div class="floating-header-logo">
         <a th:href="@{site.url}">
             <th:block th:if="${site.logo !=''}">
@@ -15,7 +15,8 @@
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this
         </div>
-        <a class="floating-header-share-tw" th:href="|https://twitter.com/share?text=${site.title}&amp;url=${site.url}|"
+        <a class="floating-header-share-tw"
+            th:href="|https://twitter.com/share?text=${post.spec.title}&amp;url=${site.url}|"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
                 <path fill="currentColor"
