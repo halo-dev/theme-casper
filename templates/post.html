@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{layout :: html(title = |${site.title} - ${post.spec.title}|,  content = ~{::content})}">
+<th:block th:fragment="content">
+    <header class="site-header outer">
+        <div class="inner">
+            <th:block th:replace="~{partials/site-nav}"></th:block>
+        </div>
+    </header>
+    <main id="site-main" class="site-main outer">
+        <div class="inner">
+            <article class="post-full post">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date"
+                            th:datetime="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"
+                            th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"></time>
+                        <th:block th:if=" ${not #lists.isEmpty(post.categories)}">
+                            <span class=" date-divider">/</span>
+                            <a href="${post.categories[0].status.permalink}"
+                                th:text="${post.categories[0].spec.displayName}"></a>
+                        </th:block>
+                    </section>
+
+                    <h1 class="post-full-title" th:text="${post.spec.title}"></h1>
+                </header>
+                <th:block th:if="${post.spec.cover!=''}">
+                    <figure class="post-full-image" th:style="|background-image: url(${post.spec.cover})|">
+                    </figure>
+                </th:block>
+                <section class="post-full-content">
+                    <div class="post-content">
+                        <th:block th:utext="${post.content.content}"></th:block>
+
+                        <th:blcok th:replace="~{partials/post-copyright :: post-copyright(${post})}"></th:blcok>
+                    </div>
+                </section>
+                <footer class="post-full-footer">
+                    <th:block th:if="${#lists.size(post.contributors) gt 1}">
+                        <th:block th:replace="~{partials/byline-multiple :: single(${post.contributors})}">
+                        </th:block>
+                    </th:block>
+                    <th:block th:unless="${#lists.size(post.contributors) gt 1}">
+                        <th:block th:replace="~{partials/byline-single :: single(${post.contributors[0]})}"></th:block>
+                    </th:block>
+
+                </footer>
+
+                <section class="post-full-comments">
+                    <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}"
+                        colorScheme="'light'" />
+                </section>
+            </article>
+        </div>
+    </main>
+    <th:block th:replace="~{partials/floating-header}">
+
+    </th:block>
+    <script>
+
+        // NOTE: Scroll performance is poor in Safari
+        // - this appears to be due to the events firing much more slowly in Safari.
+        //   Dropping the scroll event and using only a raf loop results in smoother
+        //   scrolling but continuous processing even when not scrolling
+        $(document).ready(function () {
+            // Start fitVids
+            var $postContent = $(".post-full-content");
+            $postContent.fitVids();
+            // End fitVids
+
+            var progressBar = document.querySelector('#reading-progress');
+            var header = document.querySelector('.floating-header');
+            var title = document.querySelector('.post-full-title');
+
+            var lastScrollY = window.scrollY;
+            var lastWindowHeight = window.innerHeight;
+            var lastDocumentHeight = $(document).height();
+            var ticking = false;
+
+            function onScroll() {
+                lastScrollY = window.scrollY;
+                requestTick();
+            }
+
+            function onResize() {
+                lastWindowHeight = window.innerHeight;
+                lastDocumentHeight = $(document).height();
+                requestTick();
+            }
+
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                }
+                ticking = true;
+            }
+
+            function update() {
+                var trigger = title.getBoundingClientRect().top + window.scrollY;
+                var triggerOffset = title.offsetHeight + 35;
+                var progressMax = lastDocumentHeight - lastWindowHeight;
+
+                // show/hide floating header
+                if (lastScrollY >= trigger + triggerOffset) {
+                    header.classList.add('floating-active');
+                } else {
+                    header.classList.remove('floating-active');
+                }
+
+                progressBar.setAttribute('max', progressMax);
+                progressBar.setAttribute('value', lastScrollY);
+
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onResize, false);
+
+            update();
+
+        });
+    </script>
+</th:block>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{layout :: html(title = |${singlePage.spec.title} - ${site.title}|,  content = ~{::content})}">
+<th:block th:fragment="content">
+    <header class="site-header outer">
+        <div class="inner">
+            <th:block th:replace="~{partials/site-nav}"></th:block>
+        </div>
+    </header>
+    <main id="site-main" class="site-main outer">
+        <div class="inner">
+
+            <article class="post-full post page <#if !post.thumbnail??>no-image</#if>">
+
+                <header class="post-full-header">
+                    <h1 class="post-full-title" th:text="${singlePage.spec.title}"></h1>
+                </header>
+
+                <th:block th:if="${singlePage.spec.cover!=''}">
+                    <figure class="post-full-image" th:style="|background-image: url(${singlePage.spec.cover})|">
+                    </figure>
+                </th:block>
+                <section class="post-full-content">
+                    <div class="post-content" th:utext="${singlePage.content.content}">
+
+                    </div>
+                </section>
+
+                <section class="post-full-comments" style="margin-top: 20px;">
+                    <halo:comment group="content.halo.run" kind="Post" th:attr="name=${singlePage.metadata.name}"
+                        colorScheme="'light'" />
+                </section>
+
+            </article>
+
+        </div>
+    </main>
+    <script>
+        $(function () {
+            var $postContent = $(".post-full-content");
+            $postContent.fitVids();
+        });
+    </script>
+</th:block>
+
+</html>

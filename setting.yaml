@@ -10,7 +10,7 @@ spec:
         - $formkit: text
           name: cover
           label: 首页背景图
-          value: /themes/ghost_casper/assets/images/blog-cover.jpg
+          value: ""
         - $formkit: text
           name: links_cover
           label: 友情链接页面背景图
@@ -51,15 +51,6 @@ spec:
     - group: sns
       label: 社交设置
       formSchema:
-        - $formkit: radio
-          name: rss
-          label: RSS
-          value: true
-          options:
-            - value: true
-              label: 开启
-            - value: false
-              label: 关闭
         - $formkit: text
           name: twitter
           label: Twitter
