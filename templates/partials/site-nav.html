@@ -8,7 +8,7 @@
         </th:block>
         <div th:with="menu = ${menuFinder.getPrimary()}">
             <ul class="nav" role="menu" th:with="menuItems = ${menu.menuItems}">
-                <li th:each="menuItem : ${menuItems}" th:class="|nav-${menuitem.spec.displayname}|" role="menuitem"><a
+                <li th:each="menuItem : ${menuItems}" th:class="|nav-${menuItem.spec.displayName}|" role="menuitem"><a
                         th:href="@{${menuItem.status.href}}" th:target="${menuItem.spec.target?.value}"
                         th:text="${menuItem.status.displayName}"></a>
                 </li>
