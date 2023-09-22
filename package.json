@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "prettier": "prettier --write './templates/**/*.html'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}

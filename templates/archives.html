@@ -1,75 +1,75 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{layout :: html(title = |归档 - ${site.title}|,  content = ~{::content})}">
-<th:block th:fragment="content">
-
-
+<!doctype html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(title = |归档 - ${site.title}|,  content = ~{::content})}"
+>
+  <th:block th:fragment="content">
     <header class="site-header outer">
-        <div class="inner">
-            <th:block th:replace="~{partials/site-nav}"></th:block>
-        </div>
+      <div class="inner">
+        <th:block th:replace="~{partials/site-nav}"></th:block>
+      </div>
     </header>
     <main id="site-main" class="site-main outer">
-        <div class="inner">
-            <article class="post-full post page ">
-                <header class="post-full-header">
-                    <h1 class="post-full-title">文章归档</h1>
-                </header>
-                <th:block th:if="${theme.config.general.archives_cover}">
-                    <figure class="post-full-image"
-                        th:style="|background-image: url(${theme.config.general.archives_cover})|">
-                    </figure>
-                </th:block>
-                <section class="post-full-content">
-                    <div class="post-content">
-                        <h1>分类</h1>
-                        <ul th:with="categories = ${categoryFinder.listAll()}">
+      <div class="inner">
+        <article class="post-full post page">
+          <header class="post-full-header">
+            <h1 class="post-full-title">文章归档</h1>
+          </header>
+          <th:block th:if="${theme.config.general.archives_cover}">
+            <figure
+              class="post-full-image"
+              th:style="|background-image: url(${theme.config.general.archives_cover})|"
+            ></figure>
+          </th:block>
+          <section class="post-full-content">
+            <div class="post-content">
+              <h1>分类</h1>
+              <ul th:with="categories = ${categoryFinder.listAll()}">
+                <li th:each="category : ${categories}">
+                  <a
+                    th:href="@{${category.status.permalink}}"
+                    th:text="${category.spec.displayName}"
+                  ></a>
+                </li>
+              </ul>
 
-                            <li th:each="category : ${categories}">
-                                <a th:href="@{${category.status.permalink}}" th:text="${category.spec.displayName}"></a>
-                            </li>
-                        </ul>
+              <h1>标签</h1>
+              <ul th:with="tags = ${tagFinder.listAll()}">
+                <li th:each="tag : ${tags}">
+                  <a
+                    th:href="@{${tag.status.permalink}}"
+                    th:text="${tag.spec.displayName}"
+                  ></a>
+                </li>
+              </ul>
 
-                        <h1>标签</h1>
-                        <ul th:with="tags = ${tagFinder.listAll()}">
+              <h1>归档</h1>
 
-                            <li th:each="tag : ${tags}">
-                                <a th:href="@{${tag.status.permalink}}" th:text="${tag.spec.displayName}"></a>
-                            </li>
-
-                        </ul>
-
-                        <h1>归档</h1>
-
-                        <th:block th:each="archive : ${archives.items}">
-                            <h2 th:text="|${archive.year}年|"></h2>
-                            <ul class="listing">
-                                <th:block th:each="month : ${archive.months}">
-                                    <li th:each="post : ${month.posts}">
-                                        <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}">
-                                        </a>
-                                    </li>
-                                </th:block>
-                            </ul>
-                        </th:block>
-
-
-                    </div>
-                </section>
-
-            </article>
-
-        </div>
+              <th:block th:each="archive : ${archives.items}">
+                <h2 th:text="|${archive.year}年|"></h2>
+                <ul class="listing">
+                  <th:block th:each="month : ${archive.months}">
+                    <li th:each="post : ${month.posts}">
+                      <a
+                        th:href="@{${post.status.permalink}}"
+                        th:text="${post.spec.title}"
+                      >
+                      </a>
+                    </li>
+                  </th:block>
+                </ul>
+              </th:block>
+            </div>
+          </section>
+        </article>
+      </div>
     </main>
 
     <script>
-        $(function () {
-            var $postContent = $(".post-full-content");
-            $postContent.fitVids();
-        });
+      $(function () {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+      });
     </script>
-
-
-</th:block>
-
+  </th:block>
 </html>

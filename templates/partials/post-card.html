@@ -1,31 +1,37 @@
 <article class="post-card post" th:fragment="post-card(post)">
-    <th:block th:if="${post.spec.cover!=''}">
-        <a class="post-card-image-link" th:href="${post.status.permalink}">
-            <div class="post-card-image" th:style="|background-image: url(${post.spec.cover})|"></div>
-        </a>
-    </th:block>
-    <div class="post-card-content">
-        <a class="post-card-content-link" th:href="${post.status.permalink}">
-            <header class="post-card-header">
-                <th:block th:if="${not #lists.isEmpty(post.categories)}">
-                    <span class="post-card-tags" th:text="${post.categories[0].spec.displayName}"></span>
-                </th:block>
-                <h2 class="post-card-title" th:text="${post.spec.title}"></h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p th:utext="${post.status.excerpt}"></p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-            <ul class="author-list">
-                <li class="author-list-item">
-                    <div class="author-name-tooltip" th:text="${post.spec.owner}">
-                    </div>
-
-                </li>
-            </ul>
-            <span class="reading-time" th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"></span>
-
-        </footer>
-    </div>
+  <th:block th:if="${post.spec.cover!=''}">
+    <a class="post-card-image-link" th:href="${post.status.permalink}">
+      <div
+        class="post-card-image"
+        th:style="|background-image: url(${post.spec.cover})|"
+      ></div>
+    </a>
+  </th:block>
+  <div class="post-card-content">
+    <a class="post-card-content-link" th:href="${post.status.permalink}">
+      <header class="post-card-header">
+        <th:block th:if="${not #lists.isEmpty(post.categories)}">
+          <span
+            class="post-card-tags"
+            th:text="${post.categories[0].spec.displayName}"
+          ></span>
+        </th:block>
+        <h2 class="post-card-title" th:text="${post.spec.title}"></h2>
+      </header>
+      <section class="post-card-excerpt">
+        <p th:utext="${post.status.excerpt}"></p>
+      </section>
+    </a>
+    <footer class="post-card-meta">
+      <ul class="author-list">
+        <li class="author-list-item">
+          <div class="author-name-tooltip" th:text="${post.spec.owner}"></div>
+        </li>
+      </ul>
+      <span
+        class="reading-time"
+        th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"
+      ></span>
+    </footer>
+  </div>
 </article>
