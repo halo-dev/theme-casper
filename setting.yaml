@@ -7,14 +7,14 @@ spec:
     - group: general
       label: 基础设置
       formSchema:
-        - $formkit: text
+        - $formkit: attachment
           name: cover
           label: 首页背景图
           value: ""
-        - $formkit: text
+        - $formkit: attachment
           name: links_cover
           label: 友情链接页面背景图
-        - $formkit: text
+        - $formkit: attachment
           name: archives_cover
           label: 归档页面背景图
         - $formkit: radio
