@@ -1,94 +1,88 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: halo-setting-casper
+  name: theme-casper-setting
 spec:
   forms:
-    - group: general
-      label: 基础设置
+    - group: custom
+      label: 样式配置
       formSchema:
-        - $formkit: attachment
-          name: cover
-          label: 首页背景图
-          value: ""
-        - $formkit: attachment
-          name: links_cover
-          label: 友情链接页面背景图
-        - $formkit: attachment
-          name: archives_cover
-          label: 归档页面背景图
-        - $formkit: radio
-          name: post_copyright
-          label: 文章版权信息
-          value: true
-          options:
-            - value: true
-              label: 开启
-            - value: false
-              label: 关闭
-        - $formkit: text
-          name: location
-          label: 所在地
+        - $formkit: color
+          name: accent_color
+          label: 主题色
+          value: '#ff0095'
         - $formkit: select
-          name: code_pretty
-          label: 文章代码高亮主题
-          value: Default
+          name: color_scheme
+          label: 配色方案
+          value: light-mode
           options:
-            - value: Default
-              label: Default
-            - value: Coy
-              label: Coy
-            - value: Dark
-              label: Dark
-            - value: Okaidia
-              label: Okaidia
-            - value: Solarized Light
-              label: Solarized Light
-            - value: Tomorrow Night
-              label: Tomorrow Night
-            - value: Twilight
-              label: Twilight
-    - group: sns
-      label: 社交设置
+            - value: light-mode
+              label: 浅色
+            - value: dark-mode
+              label: 深色
+            - value: auto-color
+              label: 自动
+        - $formkit: select
+          name: navigation_layout
+          label: 导航布局
+          value: left-logo
+          options:
+            - value: left-logo
+              label: LOGO 显示在封面
+            - value: middle-logo
+              label: LOGO 居中
+            - value: stacked
+              label: 导航栏堆叠
+    - group: index
+      label: 首页设置
       formSchema:
-        - $formkit: text
-          name: twitter
-          label: Twitter
-          placeholder: 只需填入 Twitter 用户名即可
-        - $formkit: text
-          name: facebook
-          label: Facebook
-          placeholder: 只需填入 Facebook 用户名即可
-        - $formkit: text
-          name: instagram
-          label: Instagram
-          placeholder: 只需填入 Instagram 用户名即可
-        - $formkit: text
-          name: dribbble
-          label: Dribbble
-          placeholder: 只需填入 Dribbble 用户名即可
-        - $formkit: text
-          name: weibo
-          label: 微博
-          placeholder: 只需填入微博 Id 即可
-        - $formkit: text
-          name: email
-          label: Email
-          placeholder: 只需填入邮箱地址即可
-        - $formkit: text
-          name: qq
-          label: QQ
-          placeholder: 只需填入 Github 用户名即可
-        - $formkit: text
-          name: telegram
-          label: Telegram
-          placeholder: 只需填入 Telegram Id 即可
-        - $formkit: text
-          name: cnblog
-          label: 博客园
-        - $formkit: text
-          name: github
-          label: Github
-        - $formkit: text
-          name: stackoverflow
-          label: Stack Overflow
+        - $formkit: attachment
+          name: cover_image
+          label: 封面图
+          value: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI1fHxncmFkaWVudHxlbnwwfHx8fDE2NTMxOTA4NjY&ixlib=rb-1.2.1&q=80&w=2000"
+        - $formkit: checkbox
+          name: show_publication_cover
+          label: 显示封面
+          value: true
+        - $formkit: select
+          name: header_style
+          label: 顶部内容布局
+          value: center
+          options:
+            - value: center-aligned
+              label: 居中
+            - value: left-aligned
+              label: 左对齐
+            - value: hidden
+              label: 隐藏
+        - $formkit: select
+          name: feed_layout
+          label: 文章布局
+          value: classic
+          options:
+            - value: classic
+              label: 经典模式
+            - value: grid
+              label: 网格模式
+            - value: list
+              label: 列表模式
+    - group: post
+      label: 文章页设置
+      formSchema:
+        - $formkit: select
+          name: post_image_style
+          label: 封面图样式
+          value: left-logo
+          options:
+            - value: wide
+              label: 大尺寸
+            - value: small
+              label: 小尺寸
+            - value: full
+              label: 宽度铺满
+            - value: hidden
+              label: 隐藏
+        - $formkit: checkbox
+          name: show_recent_posts_footer
+          label: 底部显示最近文章
+          value: true

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = '404-template', title = ${singlePage.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <section class="outer error-content">
+    <div class="inner">
+      <section class="error-message">
+        <h1 class="error-code" th:text="${error.status}">{{statusCode}}</h1>
+        <p class="error-description" th:text="${error.title}">{{message}}</p>
+        <p class="error-description" th:text="${error.detail}">{{message}}</p>
+        <a class="error-link" href="/">Go to the front page →</a>
+      </section>
+    </div>
+  </section>
+  <aside class="read-more-wrap outer">
+    <div class="read-more inner" th:with="posts = ${postFinder.list(1, 3)}">
+      <th:block th:each="post,iterStat : ${posts.items}">
+        <th:block th:replace="~{partials/post-card :: post-card(${post})}" />
+      </th:block>
+    </div>
+  </aside>
+</th:block>
+</html>

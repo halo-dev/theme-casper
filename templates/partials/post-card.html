@@ -1,14 +1,18 @@
-<article class="post-card post" th:fragment="post-card(post)">
+<article class="post-card post"
+  th:classappend="|${theme.config.index.feed_layout == 'classic' and _templateId == 'index' and iterStat.index == 0 ? 'post-card-large' : ''} ${theme.config.index.feed_layout == 'classic' and _templateId == 'index' and (iterStat.index == 1 or iterStat.index == 2) ? 'dynamic' : ''} ${theme.config.index.feed_layout == 'grid' ? 'keep-ratio' : ''} ${theme.config.index.feed_layout == 'list' and (_templateId == 'index' or _templateId == singlePage) ? 'post-card-large' : ''}|" 
+  th:fragment="post-card(post)">
   <th:block th:if="${post.spec.cover!=''}">
-    <a class="post-card-image-link" th:href="${post.status.permalink}">
-      <div
+    <a class="post-card-image-link" th:href="@{${post.status.permalink}}">
+      <img
         class="post-card-image"
-        th:style="|background-image: url(${post.spec.cover})|"
-      ></div>
+        th:src="${post.spec.cover}"
+        th:alt="${post.spec.title}"
+        loading="lazy"
+      />
     </a>
   </th:block>
   <div class="post-card-content">
-    <a class="post-card-content-link" th:href="${post.status.permalink}">
+    <a class="post-card-content-link" th:href="@{${post.status.permalink}}">
       <header class="post-card-header">
         <th:block th:if="${not #lists.isEmpty(post.categories)}">
           <span
@@ -18,20 +22,15 @@
         </th:block>
         <h2 class="post-card-title" th:text="${post.spec.title}"></h2>
       </header>
-      <section class="post-card-excerpt">
-        <p th:utext="${post.status.excerpt}"></p>
-      </section>
+      <div class="post-card-excerpt" th:utext="${post.status.excerpt}"></div>
     </a>
     <footer class="post-card-meta">
+      <time class="post-card-meta-date" th:datetime="${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}" th:text="${#dates.format(post.spec.publishTime, 'MMM dd, YYYY')}"></time>
       <ul class="author-list">
         <li class="author-list-item">
           <div class="author-name-tooltip" th:text="${post.spec.owner}"></div>
         </li>
       </ul>
-      <span
-        class="reading-time"
-        th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"
-      ></span>
     </footer>
   </div>
 </article>

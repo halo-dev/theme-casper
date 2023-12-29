@@ -1,52 +1,22 @@
-<!doctype html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(title = |${singlePage.spec.title} - ${site.title}|,  content = ~{::content})}"
->
-  <th:block th:fragment="content">
-    <header class="site-header outer">
-      <div class="inner">
-        <th:block th:replace="~{partials/site-nav}"></th:block>
-      </div>
-    </header>
-    <main id="site-main" class="site-main outer">
-      <div class="inner">
-        <article
-          class="post-full post page <#if !post.thumbnail??>no-image</#if>"
-        >
-          <header class="post-full-header">
-            <h1 class="post-full-title" th:text="${singlePage.spec.title}"></h1>
-          </header>
-
-          <th:block th:if="${singlePage.spec.cover!=''}">
-            <figure
-              class="post-full-image"
-              th:style="|background-image: url(${singlePage.spec.cover})|"
-            ></figure>
-          </th:block>
-          <section class="post-full-content">
-            <div
-              class="post-content"
-              th:utext="${singlePage.content.content}"
-            ></div>
-          </section>
-
-          <section class="post-full-comments" style="margin-top: 20px">
-            <halo:comment
-              group="content.halo.run"
-              kind="Post"
-              th:attr="name=${singlePage.metadata.name}"
-              colorScheme="'light'"
-            />
-          </section>
-        </article>
-      </div>
-    </main>
-    <script>
-      $(function () {
-        var $postContent = $(".post-full-content");
-        $postContent.fitVids();
-      });
-    </script>
-  </th:block>
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'post-template', title = ${singlePage.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <main id="site-main" class="site-main">
+    <article class="article post no-image">
+      <header class="article-header gh-canvas"
+        th:if="${#annotations.getOrDefault(singlePage, 'show_title_and_feature_image', 'true')}">
+        <h1 class="article-title" th:text="${singlePage.spec.title}">{{title}}</h1>
+        <p class="article-excerpt" th:text="${singlePage.spec.excerpt.raw}">{{custom_excerpt}}</p>
+        <figure class="article-image" th:if="${not #strings.isEmpty(singlePage.spec.cover)}">
+          <img th:src="${singlePage.spec.cover}" th:alt="${singlePage.spec.title}" />
+        </figure>
+      </header>
+      <section class="gh-content gh-canvas" th:utext="${singlePage.content.content}"></section>
+      <section class="article-comments gh-canvas" th:if="${haloCommentEnabled}">
+        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" colorScheme="'light'" />
+      </section>
+    </article>
+  </main>
+</th:block>
 </html>

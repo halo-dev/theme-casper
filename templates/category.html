@@ -1,51 +1,31 @@
-<!doctype html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(title = |分类 - ${site.title}|,  content = ~{::content})}"
->
-  <th:block th:fragment="content">
-    <header
-      class="site-header outer"
-      th:style="|background-image: url(${theme.config.general.cover})|"
-    >
-      <div class="inner">
-        <th:block th:replace="~{partials/site-nav}"></th:block>
-        <div class="site-header-content">
-          <h1 class="site-title">
-            分类：<th:blcok th:text="${category.spec.displayName}"></th:blcok>
-          </h1>
-          <h2 class="site-description">
-            <th:block
-              th:text="${category.spec.description}"
-              th:if="${category.spec.description != ''}"
-            >
-            </th:block>
-            <th:block th:text="|共有${category.postCount}文章|"></th:block>
-          </h2>
-        </div>
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'tag-template', title = ${post.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <main id="site-main" class="site-main outer">
+    <div class="inner posts">
+      <div class="post-feed">
+        <section class="post-card post-card-large">
+          <div class="post-card-image-link" th:if="${not #strings.isEmpty(category.spec.cover)}">
+            <img class="post-card-image" th:src="${category.spec.cover}" alt="${category.spec.displayName}" />
+          </div>
+          <div class="post-card-content">
+            <div class="post-card-content-link">
+              <header class="post-card-header">
+                <h2 class="post-card-title" th:text="${category.spec.displayName}">{{name}}</h2>
+              </header>
+              <div class="post-card-excerpt">
+                <th:block th:text="${category.spec.description}" th:if="${not #strings.isEmpty(category.spec.description)}"></th:block>
+                <th:block th:text="|共有 ${category.postCount} 篇文章|" th:if="${#strings.isEmpty(category.spec.description)}"></th:block>
+              </div>
+            </div>
+          </div>
+        </section>
+        <th:block th:each="post,iterStat : ${posts.items}">
+          <th:block th:replace="~{partials/post-card :: post-card(${post})}" />
+        </th:block>
       </div>
-    </header>
-    <main id="site-main" class="site-main outer">
-      <div class="inner">
-        <div class="post-feed">
-          <th:block th:each="post : ${posts.items}">
-            <th:block
-              th:replace="~{partials/post-card :: post-card(${post})}"
-            />
-          </th:block>
-        </div>
-      </div>
-    </main>
-    <th:block th:if="${posts.total gt 0}">
-      <script>
-        // maxPages is a global variable that is needed to determine
-        // if we need to load more pages for the infinitescroll, or if
-        // we reached the last page already.
-        var maxPages = parseInt(
-          document.querySelector(".total").getAttribute("data-total"),
-        );
-      </script>
-      <script th:src="@{/assets/built/infinitescroll.js}"></script>
-    </th:block>
-  </th:block>
+    </div>
+  </main>
+</th:block>
 </html>

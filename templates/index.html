@@ -1,83 +1,29 @@
-<!doctype html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(title = ${site.title},  content = ~{::content})}"
->
-  <th:block th:fragment="content">
-    <th:block th:if="${theme.config.general.cover !='' }">
-      <header
-        class="site-header outer"
-        th:style="|background-image: url(${theme.config.general.cover})|"
-      >
-        <div class="inner">
-          <div class="site-header-content">
-            <h1 class="site-title">
-              <th:block th:if="${site.logo !=''}">
-                <img
-                  class="site-logo"
-                  th:src="${site.logo}"
-                  th:alt="${site.title}"
-                />
-              </th:block>
-              <th:block th:if="${site.logo == ''}" th:text="${site.title}">
-              </th:block>
-            </h1>
-            <h2 class="site-description" th:text="${site.subtitle}"></h2>
-          </div>
-          <th:block th:replace="~{partials/site-nav}"></th:block>
-        </div>
-      </header>
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'home-template', title = ${site.title},  content = ~{::content})}">
+<th:block th:fragment="content">
+  <div th:class="|site-header-content outer ${theme.config.index.header_style}|">
+    <th:block th:if="${theme.config.index.show_publication_cover}">
+      <img class="site-header-cover" sizes="100vw" th:src="@{${theme.config.index.cover_image}}"
+        th:alt="${site.title}" />
     </th:block>
-    <th:block th:if="${ theme.config.general.cover =='' }">
-      <header
-        class="site-header outer"
-        th:style="|background-image:url(@{/assets/images/blog-cover.jpg})|"
-      >
-        <div class="inner">
-          <div class="site-header-content">
-            <h1 class="site-title">
-              <th:block th:if="${site.logo !=''}">
-                <img
-                  class="site-logo"
-                  th:src="${site.logo}"
-                  th:alt="${site.title}"
-                />
-              </th:block>
-              <th:block th:if="${site.logo == ''}" th:text="${site.title}">
-              </th:block>
-            </h1>
-            <h2 class="site-description" th:text="${site.subtitle}"></h2>
-          </div>
-          <th:block th:replace="~{partials/site-nav}"></th:block>
-        </div>
-      </header>
-    </th:block>
-    <main id="site-main" class="site-main outer">
-      <div class="inner">
-        <div class="post-feed">
-          <th:block th:each="post : ${posts.items}">
-            <th:block
-              th:replace="~{partials/post-card :: post-card(${post})}"
-            />
-          </th:block>
-        </div>
+    <div class="site-header-inner inner" th:if="${theme.config.index.header_style} != 'hidden'">
+      <th:block th:if="${theme.config.custom.navigation_layout} == 'left-logo'">
+        <img class="site-logo" th:if="${not #strings.isEmpty(site.logo)}" th:src="${site.logo}"
+          th:alt="${site.title}">
+        <h1 class="site-title" th:if="${#strings.isEmpty(site.logo)}" th:text="${site.title}">{{@site.title}}</h1>
+      </th:block>
+      <p class="site-description" th:if="${not #strings.isEmpty(site.subtitle)}" th:text="${site.subtitle}">{{@site.description}}</p>
+    </div>
+  </div>
+  <main id="site-main" class="site-main outer">
+    <div class="inner posts">
+      <div class="post-feed">
+        <th:block th:each="post,iterStat : ${posts.items}">
+          <th:block th:replace="~{partials/post-card :: post-card(${post})}" />
+        </th:block>
       </div>
-    </main>
-    <div
-      style="display: none"
-      class="total"
-      th:attr="data-total=${posts.totalPages}"
-    ></div>
-    <th:block th:if="${posts.total gt 0}">
-      <script>
-        // maxPages is a global variable that is needed to determine
-        // if we need to load more pages for the infinitescroll, or if
-        // we reached the last page already.
-        var maxPages = parseInt(
-          document.querySelector(".total").getAttribute("data-total"),
-        );
-      </script>
-      <script th:src="@{/assets/built/infinitescroll.js}"></script>
-    </th:block>
-  </th:block>
+    </div>
+  </main>
+</th:block>
 </html>
