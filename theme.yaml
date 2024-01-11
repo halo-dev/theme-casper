@@ -4,11 +4,11 @@ spec:
   displayName: Casper
   description:
   logo: https://avatars1.githubusercontent.com/u/2178663?s=200&v=4
-  website: https://github.com/halo-dev/halo-theme-casper
-  repo: https://github.com/halo-dev/halo-theme-casper
+  website: https://github.com/halo-dev/theme-casper
+  repo: https://github.com/halo-dev/theme-casper
   settingName: theme-casper-setting
   configMapName: theme-casper-configMap
   version: 2.0.0
   require: ">=2.8.0"
 metadata:
-  name: halo-theme-casper
+  name: theme-casper

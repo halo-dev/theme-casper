@@ -16,18 +16,3 @@ apiVersion: v1alpha1
 kind: AnnotationSetting
 metadata:
   name: theme-casper-page
-
----
-
-spec:
-  targetRef:
-    group: ""
-    kind: User
-  formSchema:
-    - $formkit: "text"
-      name: "icon"
-      label: "图标"
-apiVersion: v1alpha1
-kind: AnnotationSetting
-metadata:
-  name: theme-casper-user
