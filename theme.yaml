@@ -10,5 +10,7 @@ spec:
   configMapName: theme-casper-configMap
   version: 2.0.0
   require: ">=2.8.0"
+  author:
+    name: Ghost Foundation
 metadata:
   name: theme-casper
