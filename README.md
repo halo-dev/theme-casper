@@ -1,23 +1,50 @@
-<h1><a href="https://github.com/halo-dev" target="_blank">halo-theme-casper</a></h1>
+## 介绍
 
-## Description
+一款适用于博客场景的 Halo 主题。
 
-The original author of this theme is [Ghost](https://github.com/TryGhost),Thanks very much for making such a great theme.
+该主题移植自 [Ghost](https://github.com/TryGhost) 默认主题 Casper，非常感谢做出这么优秀的主题。
 
-Original subject address：[https://github.com/TryGhost/Casper](https://github.com/TryGhost/Casper)
+原主题地址：[https://github.com/TryGhost/Casper](https://github.com/TryGhost/Casper)
 
-## Preview screenshot
+![index](./screenshot.jpeg)
 
-![index](https://i.loli.net/2019/05/29/5ced6b8f66c0298030.png)
+[预览地址](https://demo.halo.run/?preview-theme=theme-casper)
 
-![settings](https://i.loli.net/2019/05/29/5ced6b9178edf29128.png)
+## 使用方式
 
-## Preview address
+1. 手动从以下地址下载主题包并在 Console 的主题管理界面安装，安装方式可参考：<https://docs.halo.run/user-guide/themes>
 
-[Ghost](https://demo.ghost.io)
+    - https://www.halo.run/store/apps/app-rpcyT
+    - https://github.com/halo-dev/theme-casper/releases
 
-## Instructions
+3. 如果安装了[应用市场](https://www.halo.run/store/apps/app-VYJbF)插件，可以直接在应用市场中搜索`Casper`并安装。
 
-1. Clone or [download](https://github.com/halo-dev/halo-theme-casper/releases).
-2. After compressing to a zip archive, you can use it directly in the background settings of the background.
+## 开发
+
+```bash
+git clone git@github.com:halo-dev/theme-casper.git ~/halo2-dev/themes/theme-casper
+```
+
+```bash
+cd ~/halo2-dev/themes/theme-earth
+```
+
+```bash
+pnpm install 
+```
+
+```bash
+pnpm dev
+```
+
+主题开发文档可查阅：<https://docs.halo.run/2.0.0-SNAPSHOT/developer-guide/theme/prepare>
+
+## 构建打包
+
+```bash
+pnpm build
+pnpm zip
+```
+
+然后在 `dist` 目录可以看到 `zip` 格式的主题包，在 Halo 后台上传安装即可。
 
