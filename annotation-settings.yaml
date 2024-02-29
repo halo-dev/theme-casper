@@ -1,0 +1,42 @@
+spec:
+  targetRef:
+    group: content.halo.run
+    kind: SinglePage
+  formSchema:
+    - $formkit: "radio"
+      name: show_title_and_feature_image
+      label: 显示标题和封面图
+      value: "true"
+      options:
+        - value: "true"
+          label: 显示
+        - value: "false"
+          label: 隐藏
+apiVersion: v1alpha1
+kind: AnnotationSetting
+metadata:
+  name: theme-casper-page
+
+---
+
+spec:
+  targetRef:
+    group: ""
+    kind: User
+  formSchema:
+    - $formkit: text
+      name: location
+      label: 位置
+      value: "深圳"
+    - $formkit: url
+      name: website
+      label: 网址
+      value: "https://www.halo.run"
+    - $formkit: text
+      name: location
+      label: 位置
+      value: "深圳"
+apiVersion: v1alpha1
+kind: AnnotationSetting
+metadata:
+  name: theme-casper-user

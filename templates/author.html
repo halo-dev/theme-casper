@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'author-template', title = ${post.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <main id="site-main" class="site-main outer">
+    <div class="inner posts">
+      <div class="post-feed">
+        <section class="post-card post-card-large">
+          <div class="post-card-content">
+            <div class="post-card-content-link">
+              <img th:if="${not #strings.isEmpty(author.spec.avatar)}" class="author-profile-pic"
+                th:src="${author.spec.avatar}" th:alt="${author.spec.displayName}" />
+              <header class="post-card-header">
+                <h2 class="post-card-title" th:text="${author.spec.displayName}">{{name}}</h2>
+              </header>
+              <div class="post-card-excerpt" th:text="${author.spec.bio}">{{bio}}</div>
+              <footer class="author-profile-footer">
+								<div class="author-profile-location" th:unless="${#strings.isEmpty(#annotations.get(author, 'location'))}" th:text="${#annotations.get(author, 'location')}">{{location}}</div>
+                <div class="author-profile-meta">
+                  <a class="author-profile-social-link" target="_blank" rel="noopener" th:unless="${#strings.isEmpty(#annotations.get(author, 'website'))}" th:text="${#annotations.get(author, 'website')}" th:href="${#annotations.get(author, 'website')}">{{website}}</a>
+                </div>
+							</footer>
+            </div>
+          </div>
+        </section>
+        <th:block th:each="post,iterStat : ${posts.items}">
+          <th:block th:replace="~{partials/post-card :: post-card(${post})}" />
+        </th:block>
+      </div>
+    </div>
+  </main>
+</th:block>
+</html>

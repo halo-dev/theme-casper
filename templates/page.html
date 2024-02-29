@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'post-template', title = ${singlePage.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <main id="site-main" class="site-main">
+    <article class="article post no-image">
+      <header class="article-header gh-canvas"
+        th:if="${#annotations.getOrDefault(singlePage, 'show_title_and_feature_image', 'true')}">
+        <h1 class="article-title" th:text="${singlePage.spec.title}">{{title}}</h1>
+        <p class="article-excerpt" th:text="${singlePage.spec.excerpt.raw}">{{custom_excerpt}}</p>
+        <figure class="article-image" th:if="${not #strings.isEmpty(singlePage.spec.cover)}">
+          <img th:src="${singlePage.spec.cover}" th:alt="${singlePage.spec.title}" />
+        </figure>
+      </header>
+      <section class="gh-content gh-canvas" th:utext="${singlePage.content.content}"></section>
+      <section class="article-comments gh-canvas" th:if="${haloCommentEnabled}">
+        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" colorScheme="'light'" />
+      </section>
+    </article>
+  </main>
+</th:block>
+</html>

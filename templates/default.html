@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" th:class="${theme.config.custom.color_scheme}">
+
+<head>
+  <title th:text="${title}"></title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preload" as="style" th:href="@{/assets/built/screen.css}" />
+  <link rel="preload" as="script" th:href="@{/assets/built/casper.js}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/built/screen.css}" />
+  <style th:inline="css">
+    :root {
+      --ghost-accent-color: /*[(${theme.config.custom.accent_color})]*/;
+    }
+  </style>
+</head>
+<body
+  th:class="|${template} is-head-${theme.config.custom.navigation_layout} ${theme.config.custom.title_font} ${theme.config.custom.body_font}|"
+  th:classappend="${theme.config.index.show_publication_cover} ? 'has-cover' : ''">
+  <div class="viewport">
+    <header id="gh-head" class="gh-head outer"
+      th:calssappend="${theme.config.index.header_style} == 'Hidden' ? 'is-header-hidden' : ''">
+      <div class="gh-head-inner inner">
+        <div class="gh-head-brand">
+          <a class="gh-head-logo" th:classappend="${#strings.isEmpty(site.logo)} ? 'no-image' : ''" href="/">
+            <img th:if="${not #strings.isEmpty(site.logo)}" th:src="${site.logo}" th:alt="${site.title}"/>
+            <span th:if="${#strings.isEmpty(site.logo)}" th:text="${site.title}"></span>
+          </a>
+          <button class="gh-search gh-icon-btn" aria-label="Search this site" th:if="${pluginFinder.available('PluginSearchWidget')}" onclick="SearchWidget.open()">
+            <th:block th:replace="~{partials/icons/search}" />
+          </button>
+          <button class="gh-burger" aria-label="Main Menu"></button>
+        </div>
+        <nav class="gh-head-menu">
+          <ul class="nav" th:with="menu = ${menuFinder.getPrimary()}">
+            <li th:each="menuItem : ${menu.menuItems}">
+              <a th:href="@{${menuItem.status.href}}" th:target="${menuItem.spec.target?.value}"
+                th:text="${menuItem.status.displayName}">Menu</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="gh-head-actions">
+          <button class="gh-search gh-icon-btn" th:if="${pluginFinder.available('PluginSearchWidget')}" onclick="SearchWidget.open()">
+            <th:block th:replace="~{partials/icons/search}" />
+          </button>
+          <div class="gh-head-members">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="site-content">
+      <th:block th:replace="${content}" />
+    </div>
+    <footer class="site-footer outer">
+      <div class="inner">
+        <section class="copyright"><a href="/" th:text="${site.title}">Site title</a> &copy; <th:block
+            th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></th:block>
+        </section>
+        <nav class="site-footer-nav">
+          <ul class="nav" th:with="menu = ${menuFinder.getPrimary()}">
+            <li th:each="menuItem : ${menu.menuItems}">
+              <a th:href="@{${menuItem.status.href}}" th:target="${menuItem.spec.target?.value}"
+                th:text="${menuItem.status.displayName}">Menu</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="gh-powered-by"><a href="https://halo.run/" target="_blank" rel="noopener">Powered by
+            Halo</a></div>
+      </div>
+      <halo:footer />
+    </footer>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+    </script>
+  <script th:src="@{/assets/built/casper.js}"></script>
+  <script>
+    $(document).ready(function () {
+      // Mobile Menu Trigger
+      $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+      });
+      // FitVids - Makes video embeds responsive
+      $(".gh-content").fitVids();
+    });
+  </script>
+</body>
+</html>

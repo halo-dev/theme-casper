@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'tag-template', title = ${post.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <main id="site-main" class="site-main outer">
+    <div class="inner posts">
+      <div class="post-feed">
+        <section class="post-card post-card-large">
+          <div class="post-card-image-link" th:if="${not #strings.isEmpty(tag.spec.cover)}">
+            <img class="post-card-image" th:src="${tag.spec.cover}" alt="${tag.spec.displayName}" />
+          </div>
+          <div class="post-card-content">
+            <div class="post-card-content-link">
+              <header class="post-card-header">
+                <h2 class="post-card-title" th:text="${tag.spec.displayName}">{{name}}</h2>
+              </header>
+              <div class="post-card-excerpt">
+                <th:block th:text="|共有 ${tag.postCount} 篇文章|"></th:block>
+              </div>
+            </div>
+          </div>
+        </section>
+        <th:block th:each="post,iterStat : ${posts.items}">
+          <th:block th:replace="~{partials/post-card :: post-card(${post})}" />
+        </th:block>
+      </div>
+    </div>
+  </main>
+</th:block>
+</html>

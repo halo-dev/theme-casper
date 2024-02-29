@@ -1,0 +1,60 @@
+{
+  "name": "theme-casper",
+  "description": "A clean, minimal theme for Halo, migrated from the Casper theme of Ghost",
+  "version": "2.0.0",
+  "license": "MIT",
+  "screenshots": {
+      "desktop": "assets/screenshot-desktop.jpg",
+      "mobile": "assets/screenshot-mobile.jpg"
+  },
+  "scripts": {
+      "dev": "gulp",
+      "zip": "gulp zip",
+      "test": "gscan .",
+      "test:ci": "gscan --fatal --verbose .",
+      "pretest": "gulp build",
+      "preship": "yarn test",
+      "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
+      "postship": "git fetch && gulp release"
+  },
+  "author": {
+      "name": "Halo OSS Team",
+      "email": "hi@halo.run",
+      "url": "https://halo.run/"
+  },
+  "keywords": [
+      "halo",
+      "ghost",
+      "theme",
+      "ghost-theme",
+      "halo-theme"
+  ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/halo-dev/theme-casper.git"
+  },
+  "bugs": "https://github.com/halo-dev/theme-casper/issues",
+  "devDependencies": {
+      "@tryghost/release-utils": "0.8.1",
+      "autoprefixer": "10.4.7",
+      "beeper": "2.1.0",
+      "cssnano": "5.1.12",
+      "gscan": "4.36.1",
+      "gulp": "4.0.2",
+      "gulp-concat": "2.6.1",
+      "gulp-livereload": "4.0.2",
+      "gulp-postcss": "9.0.1",
+      "gulp-uglify": "3.0.2",
+      "gulp-zip": "5.1.0",
+      "inquirer": "8.2.4",
+      "postcss": "8.2.13",
+      "postcss-color-mod-function": "3.0.3",
+      "postcss-easy-import": "4.0.0",
+      "pump": "3.0.0"
+  },
+  "renovate": {
+      "extends": [
+          "@tryghost:theme"
+      ]
+  }
+}

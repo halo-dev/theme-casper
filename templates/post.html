@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:class="${theme.config.custom.color_scheme}"
+  th:replace="~{default :: html(template = 'post-template', title = ${post.spec.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+  <main id="site-main" class="site-main">
+    <article th:class="|article post image-${theme.config.post.post_image_style}|">
+      <header class="article-header gh-canvas">
+        <div class="article-tag post-card-tags">
+          <th:block th:if="${not #lists.isEmpty(post.categories)}">
+            <span class="post-card-primary-tag" th:each="category : ${post.categories}"><a th:text="${category.spec.displayName}" th:href="@{${category.status.permalink}}" th:title="${category.spec.displayName}"></a></span>
+          </th:block>
+        </div>
+        <h1 class="article-title" th:text="${post.spec.title}">{{title}}</h1>
+        <p class="article-excerpt" th:text="${post.spec.excerpt.raw}">{{custom_excerpt}}</p>
+        <div class="article-byline">
+          <section class="article-byline-content">
+            <ul class="author-list">
+              <li class="author-list-item" th:each="author : ${post.contributors}">
+                <a th:if="${not #strings.isEmpty(author.avatar)}" href="/" class="author-avatar"
+                  aria-label="Read more of {{name}}">
+                  <img class="author-profile-image" th:src="${author.avatar}" th:alt="${author.displayName}" />
+                </a>
+                <a th:if="${#strings.isEmpty(author.avatar)}" href="/" class="author-avatar author-profile-image"
+                  th:aria-label="|Read more of ${author.displayName}|">
+                  <th:block th:replace="~{partials/icons/avatar}" />
+                </a>
+              </li>
+            </ul>
+            <div class="article-byline-meta">
+              <h4 class="author-name"><a th:text="${#strings.listJoin(post.contributors.![displayName],', ')}"></a></h4>
+              <div class="byline-meta-content">
+                <time class="byline-meta-date" th:datetime="${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}"
+                  th:text="${#dates.format(post.spec.publishTime, 'MMM dd, YYYY')}">{{date}}</time>
+                <span class="byline-reading-time"><span class="bull">&bull;</span> 5 mins</span>
+              </div>
+            </div>
+          </section>
+        </div>
+        <figure class="article-image"
+          th:if="${theme.config.post.post_image_style != 'hidden' and not #strings.isEmpty(post.spec.cover)}">
+          <img sizes="(min-width: 1400px) 1400px, 92vw" th:src="${post.spec.cover}" th:alt="${post.spec.title}" />
+        </figure>
+      </header>
+      <section class="gh-content gh-canvas" th:utext="${post.content.content}"></section>
+      <section class="article-comments gh-canvas" th:if="${haloCommentEnabled}" style="font-size: 20px;">
+        <halo:comment style="font-size: 20px;"
+            group="content.halo.run"
+            kind="Post"
+            th:attr="name=${post.metadata.name}"
+            colorScheme="'light'"
+          />
+      </section>
+    </article>
+  </main>
+  <aside class="read-more-wrap outer" th:if="${theme.config.post.show_recent_posts_footer}">
+    <div class="read-more inner" th:with="posts = ${postFinder.list(1, 3)}">
+      <th:block th:each="post,iterStat : ${posts.items}">
+        <th:block th:replace="~{partials/post-card :: post-card(${post})}" />
+      </th:block>
+    </div>
+  </aside>  
+</th:block>
+
+</html>
