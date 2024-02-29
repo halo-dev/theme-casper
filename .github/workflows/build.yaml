@@ -61,10 +61,7 @@ jobs:
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >> $GITHUB_ENV
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "RELEASE_ID=${{ github.event.release.id }}" >> $GITHUB_ENV
-          mkdir $PRE_ZIP_FOLDER
-          mkdir dist
-          cp -r theme.yaml settings.yaml annotation-settings.yaml templates $PRE_ZIP_FOLDER/
-          zip -r $ARTIFACT_PATHNAME $PRE_ZIP_FOLDER
+          pnpm zip
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -88,7 +85,7 @@ jobs:
         name: Install pnpm
         id: install-pnpm
         with:
-          version: 7
+          version: 8
           run_install: false
       - name: Get pnpm store directory
         id: pnpm-cache
